@@ -74,12 +74,3 @@ Two types of `race condition`:
   ![](images/hardware.PNG)
   
 </details>
-
-### Java synchronized Keyword
-
-The synchronized keyword can be used to mark four different types of blocks:
-
-1. Instance methods
-2. Static methods
-3. Code blocks inside instance methods
-4. Code blocks inside static methods
