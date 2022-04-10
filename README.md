@@ -29,7 +29,7 @@
 </details>
 
 ### Race condition
-The situation where two or more threads complete the same resource, where the sequence in which resource is accessed is significant, is called **`race condition`**
+`Race conditions` occur only if multiple threads are accessing the same resource, and one or more of the threads write to the resource. If multiple threads read the same resource `race conditions` do not occur.
 
 Two types of `race condition`:
 + <details>
