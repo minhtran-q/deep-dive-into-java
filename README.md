@@ -68,3 +68,9 @@ Two types of `race condition`:
 </details>
   
 ### Java memory model
++ <details>
+  <summary>Bridging The Gap Between The Java Memory Model And The Hardware Memory Architecture</summary>
+
+  ![](images/hardware.PNG)
+  
+</details>
