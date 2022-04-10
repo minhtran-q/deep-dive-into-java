@@ -66,3 +66,5 @@ Two types of `race condition`:
   }
   ```
 </details>
+  
+### Java memory model
