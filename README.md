@@ -74,3 +74,5 @@ Two types of `race condition`:
   ![](images/hardware.PNG)
   
 </details>
+
+### Exception Handling
