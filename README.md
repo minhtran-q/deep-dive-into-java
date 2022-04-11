@@ -83,7 +83,7 @@ Two types of `race condition`:
   
 ### Lock and Synchronized Block
   
-+ <details>
+<details>
   <summary>Differences are as follows: </summary>
   
   + lock() & unlock() operation in separate methods
