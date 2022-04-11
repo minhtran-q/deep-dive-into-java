@@ -80,6 +80,7 @@ Two types of `race condition`:
   <summary>wait(), notify() and notifyAll()</summary>
  
 </details>
-### Starvation and Fairness
+  
+### Lock and Synchronized Block
   
 ## Exception Handling
