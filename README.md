@@ -83,4 +83,11 @@ Two types of `race condition`:
   
 ### Lock and Synchronized Block
   
++ <details>
+  <summary>Differences are as follows: </summary>
+  + lock() & unlock() operation in separate methods
+  + Support fairness by specifying the fairness property
+  + 
+</details>
+  
 ## Exception Handling
