@@ -85,9 +85,11 @@ Two types of `race condition`:
   
 + <details>
   <summary>Differences are as follows: </summary>
+  
   + lock() & unlock() operation in separate methods
   + Support fairness by specifying the fairness property
   + 
+  
 </details>
   
 ## Exception Handling
