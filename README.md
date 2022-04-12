@@ -93,3 +93,11 @@ Two types of `race condition`:
 </details>
   
 ## Exception Handling
+### Checked exception & Unchecked exception
+  
+<details>
+  <summary>When to choose checked and unchecked exceptions</summary>
+  
+  
+  
+</details>
