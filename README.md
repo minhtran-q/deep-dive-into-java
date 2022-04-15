@@ -80,6 +80,25 @@ Two types of `race condition`:
   <summary>wait(), notify() and notifyAll()</summary>
  
 </details>
+
+### Java monitor
+<details>
+  <summary>What is a monitor?</summary>
+  
+  Simply put, a _**monitor**_ is something that a thread can grab and hold, preventing all other threads from grabbing that same monitor and forcing them to wait until the monitor is released. 
+</details>
+<details>
+  <summary>monitor vs synchronized keyword</summary>
+  
+  ```
+  Object foo = new Object();
+  synchronized (foo) {
+    System.out.println("Hello world.");
+  }
+  ```
+  The current thread will first grab the monitor associated with the object stored in variable `foo` and hold it while it prints `"Hello world"`, then releases it.
+  
+</details>
   
 ### Lock and Synchronized Block
   
