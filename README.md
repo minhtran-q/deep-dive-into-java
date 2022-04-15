@@ -153,6 +153,20 @@ public class Consumer extends Thread {
     }
 }
  ```
+  _Output_
+  
+  ```
+  Producer added : 12275948008616
+  Producer sleeping by calling wait: 12275948008616
+  Consumer removed : 12275948008616
+  Consumer notifying Producer: 12275948008616
+  Producer wake up: 
+  Producer added : 12275948047960
+  Producer sleeping by calling wait: 12275948047960
+  Consumer removed : 12275948047960
+  Consumer notifying Producer: 12275948047960
+  ```
+  
 </details>
 
 ### Java monitor
