@@ -68,7 +68,7 @@ Two types of `race condition`:
 </details>
   
 ### Java memory model
-+ <details>
+<details>
   <summary>Bridging The Gap Between The Java Memory Model And The Hardware Memory Architecture</summary>
 
   ![](images/hardware.PNG)
@@ -76,7 +76,7 @@ Two types of `race condition`:
 </details>
 
 ### Thread Signaling
-+ <details>
+<details>
   <summary>wait(), notify() and notifyAll()</summary>
  
 </details>
