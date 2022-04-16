@@ -218,6 +218,17 @@ Two types of `race condition`:
   
 </details>
   
+### Semaphores
+  A Semaphore in Java is a Thread Synchronization construct that controls access to the shared resource with the help of counters. 
+  
+<details>
+  <summary>Types of semaphores</summary>
+  + Counting Semaphores
+  + Bounded Semaphores
+  + Timed Semaphores
+  + Timed Semaphores
+</details>
+  
 ## Exception Handling
 ### Checked exception & Unchecked exception
   
