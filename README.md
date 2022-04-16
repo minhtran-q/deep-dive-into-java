@@ -178,7 +178,8 @@ Two types of `race condition`:
   ```
 
     Ref: https://www.java67.com/2019/05/when-and-how-to-use-wait-and-notify-in-Java.html
-
+    Red: https://ducmanhphan.github.io/2019-12-07-Using-wait-notify-in-synchronized-method-block-of-Multithreading-Java/
+    
   </details>
 
 ### Java monitor
