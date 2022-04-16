@@ -78,7 +78,7 @@ Two types of `race condition`:
 ### Thread Signaling
   
 + <details>
-  <summary>Parallel Concurrency</summary>
+  <summary>Overview</summary>
 
   ![](images/waitnotify.png)
   
