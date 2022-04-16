@@ -243,6 +243,8 @@ Two types of `race condition`:
   Semaphore can be counted, while mutex can only count to 1.
   
   _Note: Mutex (synchronized keyword, ReentrantLock, ...)_
+  
+  Ref: https://www.baeldung.com/java-mutex
 </details>
   
 ## Exception Handling
