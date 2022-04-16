@@ -213,10 +213,10 @@ Two types of `race condition`:
   
 </details>
   
-### Lock and Synchronized Block
+### Lock
   
 <details>
-  <summary>Differences are as follows: </summary>
+  <summary>Lock and Synchronized Block</summary>
   
   + lock() & unlock() operation in separate methods
   + Support fairness by specifying the fairness property
