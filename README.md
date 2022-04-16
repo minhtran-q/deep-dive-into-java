@@ -166,7 +166,7 @@ public class Consumer extends Thread {
   Consumer removed : 12275948047960
   Consumer notifying Producer: 12275948047960
   ```
-  
+  Ref: https://www.java67.com/2019/05/when-and-how-to-use-wait-and-notify-in-Java.html
 </details>
 
 ### Java monitor
