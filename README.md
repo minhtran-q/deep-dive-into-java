@@ -223,10 +223,12 @@ Two types of `race condition`:
   
 <details>
   <summary>Types of semaphores</summary>
+  
   + Counting Semaphores
   + Bounded Semaphores
   + Timed Semaphores
   + Timed Semaphores
+  
 </details>
   
 ## Exception Handling
