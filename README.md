@@ -86,96 +86,100 @@ Two types of `race condition`:
 
 + <details>
   <summary>wait(), notify() and notifyAll()</summary>
-  
+
   _main_
-  
+
   ```
-public class Hello {
-    public static void main(String[] args) {
-      Queue < String > q = new LinkedList < > ();
-      boolean exit = false;
-      Producer p = new Producer(q, exit);
-      p.start();
-      Consumer c = new Consumer(q, exit);
-      c.start();
-    }
-}
+  public class Hello {
+      public static void main(String[] args) {
+        Queue < String > q = new LinkedList < > ();
+        boolean exit = false;
+        Producer p = new Producer(q, exit);
+        p.start();
+        Consumer c = new Consumer(q, exit);
+        c.start();
+      }
+  }
   ```
+
+
   _producer_
-  
   ```
-public class Producer extends Thread {
-  
-    private volatile Queue < String > sharedQueue;
+  public class Producer extends Thread {
 
-    private volatile boolean bExit;
+      private volatile Queue < String > sharedQueue;
 
-    public Producer(Queue < String > myQueue, boolean bExit) {
-        this.sharedQueue = myQueue;
-        this.bExit = bExit;
-    }
-    public void run() {
-        while (!bExit) {
-            synchronized(sharedQueue) {
-                while (sharedQueue.isEmpty()) {
-                  String item = String.valueOf(System.nanoTime());
-                  sharedQueue.add(item);
-                  System.out.println("Producer added : " + item);
-                    try {
-                        System.out.println("Producer sleeping by calling wait: " + item);
-                        sharedQueue.wait();
-                        System.out.println("Producer wake up: ");
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-}
-```
+      private volatile boolean bExit;
+
+      public Producer(Queue < String > myQueue, boolean bExit) {
+          this.sharedQueue = myQueue;
+          this.bExit = bExit;
+      }
+      public void run() {
+          while (!bExit) {
+              synchronized(sharedQueue) {
+                  while (sharedQueue.isEmpty()) {
+                    String item = String.valueOf(System.nanoTime());
+                    sharedQueue.add(item);
+                    System.out.println("Producer added : " + item);
+                      try {
+                          System.out.println("Producer sleeping by calling wait: " + item);
+                          sharedQueue.wait();
+                          System.out.println("Producer wake up: ");
+                      } catch (InterruptedException e) {
+                          e.printStackTrace();
+                      }
+                  }
+              }
+          }
+      }
+  }
+  ```
+
   _consumer_
-  
-```
-public class Consumer extends Thread {
-  
-    private volatile Queue < String > sharedQueue;
 
-    private volatile boolean bExit;
+  ```
+  public class Consumer extends Thread {
 
-    public Consumer(Queue < String > myQueue, boolean bExit) {
-        this.sharedQueue = myQueue;
-        this.bExit = bExit;
-    }
-    public void run() {
-        while (!bExit) {
-            synchronized(sharedQueue) {
-                while (!sharedQueue.isEmpty()) {
-                    String item = sharedQueue.poll();
-                    System.out.println("Consumer removed : " + item);
-                    System.out.println("Consumer notifying Producer: " + item);
-                    sharedQueue.notify();
-                }
-            }
-        }
-    }
-}
- ```
+      private volatile Queue < String > sharedQueue;
+
+      private volatile boolean bExit;
+
+      public Consumer(Queue < String > myQueue, boolean bExit) {
+          this.sharedQueue = myQueue;
+          this.bExit = bExit;
+      }
+      public void run() {
+          while (!bExit) {
+              synchronized(sharedQueue) {
+                  while (!sharedQueue.isEmpty()) {
+                      String item = sharedQueue.poll();
+                      System.out.println("Consumer removed : " + item);
+                      System.out.println("Consumer notifying Producer: " + item);
+                      sharedQueue.notify();
+                  }
+              }
+          }
+      }
+  }
+  ```
   _Output_
-  
+
   ```
-  Producer added : 12275948008616
-  Producer sleeping by calling wait: 12275948008616
-  Consumer removed : 12275948008616
-  Consumer notifying Producer: 12275948008616
-  Producer wake up: 
-  Producer added : 12275948047960
-  Producer sleeping by calling wait: 12275948047960
-  Consumer removed : 12275948047960
-  Consumer notifying Producer: 12275948047960
+    Producer added : 12275948008616
+    Producer sleeping by calling wait: 12275948008616
+    Consumer removed : 12275948008616
+    Consumer notifying Producer: 12275948008616
+    Producer wake up: 
+    Producer added : 12275948047960
+    Producer sleeping by calling wait: 12275948047960
+    Consumer removed : 12275948047960
+    Consumer notifying Producer: 12275948047960
   ```
-  Ref: https://www.java67.com/2019/05/when-and-how-to-use-wait-and-notify-in-Java.html
-</details>
+
+    Ref: https://www.java67.com/2019/05/when-and-how-to-use-wait-and-notify-in-Java.html
+
+  </details>
 
 ### Java monitor
 <details>
