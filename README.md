@@ -83,6 +83,7 @@ Two types of `race condition`:
   ![](images/waitnotify.png)
   
 </details>
+
 + <details>
   <summary>wait(), notify() and notifyAll()</summary>
   
