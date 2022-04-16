@@ -87,6 +87,12 @@ Two types of `race condition`:
 + <details>
   <summary>wait(), notify() and notifyAll()</summary>
 
+  + **wait()**
+  It tells the calling thread to give up the lock and go to sleep until some other thread enters the same monitor and calls notify(). 
+  + **notify()**
+  It wakes up one single thread that called wait() on the same object. It should be noted that calling notify() does not actually give up a lock on a resource. It tells a waiting thread that that thread can wake up. 
+  + **notifyAll()**
+  It wakes up all the threads that called wait() on the same object.
   _main_
 
   ```
@@ -178,8 +184,8 @@ Two types of `race condition`:
   ```
 
   + Ref: https://www.java67.com/2019/05/when-and-how-to-use-wait-and-notify-in-Java.html
-  + Red: https://ducmanhphan.github.io/2019-12-07-Using-wait-notify-in-synchronized-method-block-of-Multithreading-Java/
-    
+  + Ref: https://ducmanhphan.github.io/2019-12-07-Using-wait-notify-in-synchronized-method-block-of-Multithreading-Java/
+  + Ref: https://howtodoinjava.com/java/multi-threading/wait-notify-and-notifyall-methods/
   </details>
 
 ### Java monitor
