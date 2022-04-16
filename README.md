@@ -87,12 +87,18 @@ Two types of `race condition`:
 + <details>
   <summary>wait(), notify() and notifyAll()</summary>
 
-  + **wait()**
-  It tells the calling thread to give up the lock and go to sleep until some other thread enters the same monitor and calls notify(). 
-  + **notify()**
-  It wakes up one single thread that called wait() on the same object. It should be noted that calling notify() does not actually give up a lock on a resource. It tells a waiting thread that that thread can wake up. 
-  + **notifyAll()**
-  It wakes up all the threads that called wait() on the same object.
+  + **wait()**<br/>
+  
+    It tells the calling thread to give up the lock and go to sleep until some other thread enters the same monitor and calls notify().
+  
+  + **notify()**<br/>
+  
+    It wakes up one single thread that called wait() on the same object. It should be noted that calling notify() does not actually give up a lock on a resource. It tells a waiting thread that that thread can wake up.
+  
+  + **notifyAll()**<br/>
+  
+    It wakes up all the threads that called wait() on the same object.
+  <br/>
   _main_
 
   ```
