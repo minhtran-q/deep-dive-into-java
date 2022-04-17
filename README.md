@@ -3,7 +3,7 @@
 ## Concurrency
 ### Concurrency vs Parallelism
 
-+ <details>
+<details>
   <summary>Concurrency</summary>
   
   ![](images/concurrency.PNG)
@@ -12,7 +12,7 @@
   
 </details>
 
-+ <details>
+<details>
   <summary>Parallel</summary>
 
   ![](images/parallel.PNG)
@@ -21,7 +21,7 @@
   
 </details>
 
-+ <details>
+<details>
   <summary>Parallel Concurrency</summary>
 
   ![](images/concurrency-parallel.PNG)
@@ -77,14 +77,14 @@ Two types of `race condition`:
 
 ### Thread Signaling
   
-+ <details>
+<details>
   <summary>Overview</summary>
 
   ![](images/waitnotify.png)
   
 </details>
 
-+ <details>
+<details>
   <summary>wait(), notify() and notifyAll()</summary>
 
   + **wait()**<br/>
