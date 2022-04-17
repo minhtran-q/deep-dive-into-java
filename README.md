@@ -234,6 +234,24 @@ Two types of `race condition`:
   
   Ref: https://medium.com/@tarunjain07/volatile-reentrant-lock-vs-synchronize-condition-variable-66e870a8434d#2738
   
+</details>
+<details>
+  <summary>Pros & cons</summary>
+  
+  Pros:
+  1) Ability to lock interruptibly.
+  2) Ability to timeout while waiting for lock.
+  3) Power to create fair lock.
+  4) API to get list of waiting thread for lock.
+  5) Flexibility to try for lock without blocking.
+  
+  Cons:
+  wrapping method body inside `try-finall` block
+
+Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html#ixzz7QhMEYXjR
+  
+  Ref: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html#axzz7Qc6BsHhk
+  
 </details>  
   
 ### Semaphores
