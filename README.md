@@ -227,6 +227,15 @@ Two types of `race condition`:
   
 </details>
   
+<details>
+  <summary>Condition Variable</summary>
+  
+  
+  
+  Ref: https://medium.com/@tarunjain07/volatile-reentrant-lock-vs-synchronize-condition-variable-66e870a8434d#2738
+  
+</details>  
+  
 ### Semaphores
   A Semaphore in Java is a Thread Synchronization construct that controls access to the shared resource with the help of counters. 
   
