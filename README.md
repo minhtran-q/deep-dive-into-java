@@ -239,7 +239,7 @@ Two types of `race condition`:
 ### Semaphores
   A Semaphore in Java is a Thread Synchronization construct that controls access to the shared resource with the help of counters. 
   
-+ <details>
+<details>
   <summary>Types of semaphores</summary>
   
   + Counting Semaphores
@@ -249,7 +249,7 @@ Two types of `race condition`:
   
 </details>
   
-+ <details>
+<details>
   <summary>Semaphore vs Mutex</summary>
     
   Semaphore can be counted, while mutex can only count to 1.
