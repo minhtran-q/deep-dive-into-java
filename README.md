@@ -259,11 +259,16 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 </details>
 <details>
   <summary>ReadWriteLock vs ReentrantLock</summary>
+  <br/>
   
   **ReadWriteLock**:
   + `ReadLock` and `WriteLock` though are 2 separate instances only 1 will be allowed at a time...
   + Either `ReadLock` is being used _**(by n threads)**_ or `WriteLock` is being used _**(by 1 thread)**_
   + But never both at same time
+  
+  **ReentrantLock**:
+  + One thread at a time
+  
   
   ![](images/ReadWriteLockvsReentrantLock.png)
   
