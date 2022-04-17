@@ -224,6 +224,7 @@ Two types of `race condition`:
   + Provides _lockInterruptibly()_ which can be used to interrupt the thread when it's waiting for the lock
   
   Ref: https://www.baeldung.com/java-concurrent-locks
+  Ref: https://winterbe.com/posts/2015/04/30/java8-concurrency-tutorial-synchronized-locks-examples/
   
 </details>
   
