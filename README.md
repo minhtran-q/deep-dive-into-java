@@ -256,7 +256,20 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
   Ref: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html#axzz7Qc6BsHhk
   
-</details>  
+</details>
+<details>
+  <summary>ReadWriteLock vs ReentrantLock</summary>
+  
+  **ReadWriteLock**:
+  + `ReadLock` and `WriteLock` though are 2 separate instances only 1 will be allowed at a time...
+  + Either `ReadLock` is being used _**(by n threads)**_ or `WriteLock` is being used _**(by 1 thread)**_
+  + But never both at same time
+  
+  
+  
+  Ref: https://www.youtube.com/watch?v=7VqWkc9o7RM&ab_channel=DefogTech
+</details>
+
   
 ### Semaphores
   A Semaphore in Java is a Thread Synchronization construct that controls access to the shared resource with the help of counters. 
