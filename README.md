@@ -265,7 +265,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   + Either `ReadLock` is being used _**(by n threads)**_ or `WriteLock` is being used _**(by 1 thread)**_
   + But never both at same time
   
-  
+  ![](images/ReadWriteLockvsReentrantLock.png)
   
   Ref: https://www.youtube.com/watch?v=7VqWkc9o7RM&ab_channel=DefogTech
 </details>
@@ -289,7 +289,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
     
   Semaphore can be counted, while mutex can only count to 1.
   
-  _Note: Mutex (synchronized keyword, ReentrantLock, ...)_
+  _Note: Mutex (synchronized keyword, ReentrantLock, ReadWriteLock, ...)_
   
   Ref: https://www.baeldung.com/java-mutex
 </details>
