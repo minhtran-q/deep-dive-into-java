@@ -246,7 +246,7 @@ Two types of `race condition`:
   5) Flexibility to try for lock without blocking.
   
   Cons:
-  wrapping method body inside `try-finall` block
+  1) wrapping method body inside `try-finall` block
 
 Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html#ixzz7QhMEYXjR
   
