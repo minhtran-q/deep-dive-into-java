@@ -1,10 +1,28 @@
 # Deep dive into java
+## JVM
+### ClassLoader
+The Java ClassLoader is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine. Java classes aren’t loaded into memory all at once, but when required by an application. 
+
+<details>
+  <summary>Types of ClassLoaders</summary>
+  <br/>
+  
+  + **BootStrap ClassLoader:**  is a Machine code which kickstarts the operation when the JVM calls it. It is not a java class.
+  + **Extension ClassLoader:** is a child of **Bootstrap ClassLoader** and loads the extensions of core java classes from JDK (jre/lib/ext)
+  + **System Class Loader:** takes care of loading all the application level classes into the JVM
+  
+  Ref: https://www.geeksforgeeks.org/classloader-in-java/#:~:text=The%20Java%20ClassLoader%20is%20a,when%20required%20by%20an%20application.
+
+</details>
+
+
 ## Stream
 ## Concurrency
 ### Concurrency vs Parallelism
 
 <details>
   <summary>Concurrency</summary>
+  <br/>
   
   ![](images/concurrency.PNG)
   
@@ -14,7 +32,8 @@
 
 <details>
   <summary>Parallel</summary>
-
+  <br/>
+  
   ![](images/parallel.PNG)
   
   Parallel execution is when a computer has more than one CPU or CPU core, and makes progress on more than one task simultaneously.
@@ -23,7 +42,8 @@
 
 <details>
   <summary>Parallel Concurrency</summary>
-
+  <br/>
+  
   ![](images/concurrency-parallel.PNG)
   
 </details>
