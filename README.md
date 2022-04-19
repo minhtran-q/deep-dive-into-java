@@ -304,7 +304,12 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
 <details>
   <summary>When to choose checked and unchecked exceptions</summary>
+  <br/>
   
+  Use checked expections for recoverable conditions and runtime exceptions for programming errors
   
+  Ref: https://stackoverflow.com/questions/499437/in-java-when-should-i-create-a-checked-exception-and-when-should-it-be-a-runti?noredirect=1&lq=1
+  
+  Ref: https://stackoverflow.com/questions/27578/when-to-choose-checked-and-unchecked-exceptions
   
 </details>
