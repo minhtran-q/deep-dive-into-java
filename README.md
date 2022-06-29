@@ -56,7 +56,8 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   <summary>Dependency Inversion principle</summary>
   <br/> 
   
-  
+  + High-level modules should not depend on low-level modules. Both should depend on abstractions.
+  + Abstractions should not depend on details. Details should depend on abstractions.
   
   _Example:_ 
   
