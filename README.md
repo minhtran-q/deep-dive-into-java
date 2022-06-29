@@ -23,10 +23,35 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   
   A class should only have one responsibility
   
-  Example: The `EntityManager` interface provides a set of methods to persist, update, remove and read entities from a relational database. It doesn’t implement any business logic or validation or user authentication.
+  _Example:_ The `EntityManager` interface provides a set of methods to persist, update, remove and read entities from a relational database. It doesn’t implement any business logic or validation or user authentication.
   
 </details>
-
+<details>
+  <summary>Open for Extension, Closed for Modification principle</summary>
+  <br/>
+  
+  Classes should be open for extension but closed for modification. In doing so, we stop ourselves from modifying existing code and causing potential new bugs
+  
+</details>
+<details>
+  <summary>Liskov Substitution principle</summary>
+  <br/>
+  
+  If class A is a subtype of class B, we should be able to replace B with A without disrupting the behavior of our program.
+  
+  Signs of violation of the substitutions Liskov:
+  + 
+  
+</details>
+<details>
+  <summary>Interface segregation principle</summary>
+  <br/>
+  
+  Larger interfaces should be split into smaller ones to fit with multiple specific purposes.
+  
+  _Example:_ 
+  
+</details>
 
 ## Stream
 ## Concurrency
