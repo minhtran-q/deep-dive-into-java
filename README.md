@@ -61,6 +61,25 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   
   _Example:_ 
   
+  ```
+  public interface Keyboard { }
+  ```
+  
+  ```
+  public class Windows98Machine{
+
+      private final Keyboard keyboard;
+
+      public Windows98Machine(Keyboard keyboard) {
+          this.keyboard = keyboard;
+      }
+  }
+  ```
+  
+  _`Windows98Machine` depends on  `Keyboard`_
+  
+
+  
 </details>
 
 ## Stream
