@@ -15,6 +15,18 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
 
 </details>
 
+## SOLID
+
+<details>
+  <summary>Single responsibility principle</summary>
+  <br/>
+  
+  A class should only have one responsibility
+  
+  Example: The `EntityManager` interface provides a set of methods to persist, update, remove and read entities from a relational database. It doesn’t implement any business logic or validation or user authentication.
+  
+</details>
+
 
 ## Stream
 ## Concurrency
