@@ -49,7 +49,7 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   
   Larger interfaces should be split into smaller ones to fit with multiple specific purposes.
   
-  _Example:_ 
+  _Example:_  
   
 </details>
 
