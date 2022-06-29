@@ -49,7 +49,16 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   
   Larger interfaces should be split into smaller ones to fit with multiple specific purposes.
   
-  _Example:_  
+  _Example:_ If only data manipulation (CRUD) is needed, we can use `CrudRepository`. And when we need to view pages, we can use `PagingAndSortingRepository`
+  
+</details>
+<details>
+  <summary>Dependency Inversion principle</summary>
+  <br/> 
+  
+  
+  
+  _Example:_ 
   
 </details>
 
