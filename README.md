@@ -15,6 +15,25 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
 
 </details>
 
+## Memory
+### Memory Allocation
+
+<details>
+  <summary>Object type vs primitive data type</summary>
+  <br/>
+  
+   Type name | Object type | Primitive data type | 
+   | --- | --- | --- | 
+  Interger vs int | 4 bytes | 16 bytes 
+  Short vs short | 0 | 0
+  Float vs float | 0 | 0
+  Double vs double | 0 | 0
+  Long vs long | 0 | 0
+  Boolean vs boolean | 0 | 0
+  char | - | 0
+
+</details>
+
 ## SOLID
 
 <details>
