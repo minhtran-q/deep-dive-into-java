@@ -24,13 +24,16 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   
    Type name | Object type | Primitive data type | 
    | --- | --- | --- | 
-  Interger vs int | 4 bytes | 16 bytes 
-  Short vs short | 0 | 0
+  Interger vs int | 16 bytes | 4 bytes 
+  Short vs short | 0 | 2 bytes
+  Byte vs byte | 0 | 1 byte
   Float vs float | 0 | 0
   Double vs double | 0 | 0
-  Long vs long | 0 | 0
+  Long vs long | 24 bytes | 8 bytes
   Boolean vs boolean | 0 | 0
   char | - | 0
+  
+  + Ref: https://www.javamex.com/tutorials/memory/
 
 </details>
 
