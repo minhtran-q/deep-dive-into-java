@@ -32,6 +32,7 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   Long vs long | 24 bytes | 8 bytes
   Boolean vs boolean | 0 | 1 bit
   char | - | 2 bytes
+  String | 40 bytes | -
   
   + Ref: https://www.javamex.com/tutorials/memory/
 
