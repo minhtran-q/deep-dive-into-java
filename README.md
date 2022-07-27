@@ -37,6 +37,18 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   + Ref: https://www.javamex.com/tutorials/memory/
 
 </details>
+<details>
+  <summary>Memory configuration</summary>
+  <br/>
+  
+   | Type name | Description | 
+   | --- | --- | 
+   | -Xms | set initial Java heap size
+   | -Xmx | set maximum Java heap size
+  
+  + Ref: https://alvinalexander.com/blog/post/java/java-xmx-xms-memory-heap-size-control/
+
+</details>
 
 ## SOLID
 
