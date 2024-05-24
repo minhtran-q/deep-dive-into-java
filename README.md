@@ -120,7 +120,6 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   
 </details>
 
-## Stream
 ## Concurrency
 ### Concurrency vs Parallelism
 
