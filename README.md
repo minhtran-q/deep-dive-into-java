@@ -75,7 +75,8 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   If class A is a subtype of class B, we should be able to replace B with A without disrupting the behavior of our program.
   
   Signs of violation of the substitutions Liskov:
-  + 
+  + Overridden methods with unexpected behavior
+  + Empty method overrides
   
 </details>
 <details>
