@@ -320,11 +320,13 @@ Two types of `race condition`:
 ### Java monitor
 <details>
   <summary>What is a monitor?</summary>
+  <br/>
   
   Simply put, a _**monitor**_ is something that a thread can grab and hold, preventing all other threads from grabbing that same monitor and forcing them to wait until the monitor is released. 
 </details>
 <details>
   <summary>monitor vs synchronized keyword</summary>
+  <br/>
   
   ```
   Object foo = new Object();
@@ -340,6 +342,7 @@ Two types of `race condition`:
   
 <details>
   <summary>Lock and Synchronized Block</summary>
+  <br/>
   
   + _lock()_ & _unlock()_ operation in separate methods
   + Support fairness by specifying the fairness property
@@ -353,6 +356,7 @@ Two types of `race condition`:
   
 <details>
   <summary>Condition Variable</summary>
+  <br/>
   
   Condition variables are instance of java.util.concurrent.locks.Condition class. As a reentrant lock replaces synchronized blocks or methods, a condition replaces the object monitor methods. which provides inter-thread communication methods similar to `wait()`, `notify()` and `notifyAll()` e.g. `await()`, `signal()`, and `signalAll()`.
   
@@ -364,6 +368,7 @@ Two types of `race condition`:
 </details>
 <details>
   <summary>Pros & cons</summary>
+  <br/>
   
   Pros:
   1) Ability to lock interruptibly.
@@ -404,7 +409,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
 <details>
   <summary>Types of semaphores</summary>
-  <br>
+  <br/>
   
   + Counting Semaphores
   + Bounded Semaphores
@@ -415,7 +420,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
 <details>
   <summary>Semaphore vs Mutex</summary>
-  <br>
+  <br/>
   
   Semaphore can be counted, while mutex can only count to 1.
   
