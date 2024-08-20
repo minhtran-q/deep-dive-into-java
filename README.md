@@ -404,6 +404,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
 <details>
   <summary>Types of semaphores</summary>
+  <br>
   
   + Counting Semaphores
   + Bounded Semaphores
@@ -414,7 +415,8 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
 <details>
   <summary>Semaphore vs Mutex</summary>
-    
+  <br>
+  
   Semaphore can be counted, while mutex can only count to 1.
   
   _Note: Mutex (synchronized keyword, ReentrantLock, ReadWriteLock, ...)_
