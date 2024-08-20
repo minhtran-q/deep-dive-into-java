@@ -78,7 +78,7 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   + Overridden methods with unexpected behavior
   + Empty method overrides
 
-  Ex: A `Square` class inherits from `Rectangle`, but always enforces `width` to equal `height`. This breaks the expectation of independent width and height manipulation in rectangles.
+  Example: a `Square` class inherits from `Rectangle`, but always enforces `width` to equal `height`. This breaks the expectation of independent width and height manipulation in rectangles.
   
 </details>
 <details>
