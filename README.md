@@ -93,7 +93,7 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   + Overridden methods with unexpected behavior
   + Empty method overrides
 
-  Example: a `Square` class inherits from `Rectangle`, but always enforces `width` to equal `height`. This breaks the expectation of independent width and height manipulation in rectangles.
+  _Example_: a `Square` class inherits from `Rectangle`, but always enforces `width` to equal `height`. This breaks the expectation of independent width and height manipulation in rectangles.
   
 </details>
 <details>
@@ -115,23 +115,36 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   _Example:_ 
   
   ```
-  public interface Keyboard { }
-  ```
-  
-  ```
-  public class Windows98Machine{
-
-      private final Keyboard keyboard;
-
-      public Windows98Machine(Keyboard keyboard) {
-          this.keyboard = keyboard;
+  // Low-level module (concrete implementation)
+  public class FileLogger implements Logger {
+      public void log(String message) {
+          // Write message to a file
       }
   }
   ```
+  ```
+  // Abstraction
+  public interface Logger {
+      void log(String message);
+  }
+  ```
+  ```
+  // High-level module
+  public class OrderProcessor {
+      private Logger logger;
   
-  _`Windows98Machine` depends on  `Keyboard`_
+      public OrderProcessor(Logger logger) {
+          this.logger = logger;
+      }
   
-
+      public void processOrder(Order order) {
+          // ... process order
+          logger.log("Order processed successfully");
+      }
+  }
+  ```
++ **Dependency Inversion:** Instead of `OrderProcessor` directly depending on `FileLogger`, it depends on the `Logger` interface.
++ **Abstraction:** Both `OrderProcessor` and `FileLogger` depend on the `Logger` abstraction.
   
 </details>
 
