@@ -65,8 +65,23 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   <summary>Open for Extension, Closed for Modification principle</summary>
   <br/>
   
-  Classes should be open for extension but closed for modification. In doing so, we stop ourselves from modifying existing code and causing potential new bugs
+  Classes should be open for extension but closed for modification.
+
+  _Example:_
+  ```
+  public interface PaymentProcessor {
+      void processPayment(Order order);
+  }
   
+  public class PayPalPaymentProcessor implements PaymentProcessor {
+      // Implementation for PayPal
+  }
+  
+  public class CreditCardPaymentProcessor implements PaymentProcessor {
+      // Implementation for credit card
+  }
+  ```
+  By using an interface `PaymentProcessor`, we can introduce new payment methods without modifying the `Order` class.
 </details>
 <details>
   <summary>Liskov Substitution principle</summary>
