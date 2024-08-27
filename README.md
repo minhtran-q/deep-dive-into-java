@@ -51,8 +51,20 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
 </details>
 
 <details>
-  <summary>Byte array vs InputStream</summary>
+  <summary>Byte array vs InputStream in memory usage</summary>
   <br/>
+
+  InputStream is generally better than Byte Array in terms of memory usage. 
+
+  _InputStream:_
+
+  + **Chunked Reading:** InputStream reads data in small chunks, rather than loading the entire file into memory at once. This means only a small portion of the data is in memory at any given time.
+  + **Lower Memory Footprint:** Because it processes data incrementally, InputStream uses significantly less memory, making it ideal for large files or high-traffic scenarios.
+
+  _Byte Array:_
+
+  + **Full Data Loading:** Byte Array loads the entire file into memory. For large files, this can consume a lot of memory.
+  + **High Memory Usage:** If you have multiple large files or many concurrent requests, the memory usage can quickly add up, potentially leading to memory exhaustion.
   
 </details>
 
