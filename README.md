@@ -50,6 +50,12 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
 
 </details>
 
+<details>
+  <summary>Byte array vs InputStream</summary>
+  <br/>
+  
+</details>
+
 ## SOLID
 
 <details>
