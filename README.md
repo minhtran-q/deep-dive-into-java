@@ -497,7 +497,15 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <br/>
   
   Key features:
-  + Deconstruction: Record patterns enable you to deconstruct a record directly
+  + Enhanced instanceof: You can use pattern matching within instanceof checks to extract fields from records directly.
+
+  ```
+  if (object instanceof Person p) {
+      System.out.println("Name: " + p.name());
+  }
+  ```
+
+  + **Deconstruction:** Record patterns enable you to deconstruct a record directly
 
   ```
   record Point(int a, int b) {}
@@ -508,5 +516,14 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   }
   ```
   _If `obj` is an instance of `Point` and, if so, extracts the `a` and `b` values1._
-  
+
+  + **Record Patterns in Switch Expressions:** You can use record patterns in switch expressions to match specific record types and extract their fields.
+
+  ```
+  switch (obj) {
+      case Person(String name, int age) -> System.out.println("Person: " + name + ", Age: " + age);
+      case Animal(String species) -> System.out.println("Animal: " + species);
+      default -> System.out.println("Unknown object");
+  }
+  ```
 </details>
