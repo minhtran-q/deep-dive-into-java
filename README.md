@@ -497,7 +497,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <br/>
   
   Key features:
-  + Enhanced instanceof: You can use pattern matching within instanceof checks to extract fields from records directly.
+  + **Enhanced instanceof:** You can use pattern matching within instanceof checks to extract fields from records directly.
 
   ```
   if (object instanceof Person p) {
