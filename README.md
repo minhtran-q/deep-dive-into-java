@@ -489,3 +489,24 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   Ref: https://stackoverflow.com/questions/27578/when-to-choose-checked-and-unchecked-exceptions
   
 </details>
+
+## New features
+### Java 21
+<details>
+  <summary>Record patterns</summary>
+  <br/>
+  
+  Key features:
+  + Deconstruction: Record patterns enable you to deconstruct a record directly
+
+  ```
+  record Point(int a, int b) {}
+
+  Object obj = new Point(3, 4);
+  if (obj instanceof Point(int a, int b)) {
+      System.out.println("a: " + a + ", b: " + b);
+  }
+  ```
+  _If `obj` is an instance of `Point` and, if so, extracts the `a` and `b` values1._
+  
+</details>
