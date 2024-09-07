@@ -529,7 +529,6 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 <details>
   <summary>Sequenced Collections</summary>
   <br/>
-
   Sequenced Collections introduce a consistent way to handle collections with a defined order by providing new interfaces and methods based on type of collections.
 
   **Java 21 introduces three new interfaces:**
@@ -556,5 +555,11 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   + List:
     + First element: `list..getFirst();`
     + Last element: `list.getLast();`
+  
+</details>
+<details>
+  <summary>Sequenced Collections</summary>
+  <br/>
+  
   
 </details>
