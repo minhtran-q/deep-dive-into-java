@@ -495,7 +495,6 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 <details>
   <summary>Record patterns</summary>
   <br/>
-  
   Key features:
   + **Enhanced instanceof:** You can use pattern matching within instanceof checks to extract fields from records directly.
 
@@ -526,4 +525,36 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
       default -> System.out.println("Unknown object");
   }
   ```
+</details>
+<details>
+  <summary>Sequenced Collections</summary>
+  <br/>
+
+  Sequenced Collections introduce a consistent way to handle collections with a defined order by providing new interfaces and methods based on type of collections.
+
+  **Java 21 introduces three new interfaces:**
+  + `SequencedCollection`
+  + `SequencedSet`
+  + `SequencedMap`
+
+  _Example:_
+
+  **Before Java 21:** Different types of collections had different ways to access their elements, especially the first and last elements.
+  
+  + List:
+    + First element: `list.get(0);`
+    + Last element: `list.get(list.size() - 1);`
+  + Deque:
+    + First element: `deque.getFirst();`
+    + Last element: `deque.getLast();`
+  + SortedSet:
+    + First element: `sortedSet.first();`
+    + Last element: `sortedSet.last();`
+
+  **With Java 21:** You can now use `getFirst()` and `getLast()` methods to access the first and last elements of any sequenced collection.
+
+  + List:
+    + First element: `list..getFirst();`
+    + Last element: `list.getLast();`
+  
 </details>
