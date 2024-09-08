@@ -491,6 +491,9 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 </details>
 
 ## New features
+
+### Java 8
+### Java 11
 ### Java 21
 <details>
   <summary>Record patterns</summary>
@@ -560,6 +563,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 <details>
   <summary>Virtual Threads</summary>
   <br/>
-  
+
+  ![](images/virtual_threads.png)
   
 </details>
