@@ -495,6 +495,17 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 ### Java 8
 
 <details>
+  <summary>Stream API</summary>
+  <br/>
+  
+</details>
+<details>
+  <summary>Optional Class</summary>
+  <br/>
+  
+</details>
+
+<details>
   <summary>Default and Static Methods in Interfaces</summary>
   <br/>
   
