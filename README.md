@@ -477,15 +477,34 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
 ## Exception Handling
 ### Checked exception & Unchecked exception
-  
+
 <details>
-  <summary>When to choose checked and unchecked exceptions</summary>
+  <summary>Checked & Unchecked exceptions</summary>
   <br/>
   
-  Use checked expections for recoverable conditions and runtime exceptions for programming errors
+  **Checked Exceptions:** 
+  The exceptions that are checked at compile time. If a method throws a checked exception, it must either handle the exception using a `try-catch` block or declare it using the `throws` keyword.
+
+  **Unchecked Exceptions:**
+  The exceptions that are not checked at compile time. They are subclasses of `RuntimeException` and do not need to be declared or caught.
+</details>
+
+<details>
+  <summary>When to use Checked & Unchecked exceptions</summary>
+  <br/>
+  
+  _**Checked Exceptions:**_
+  + **Recoverable Conditions:** Use for situations where the caller can reasonably be expected to recover from the exception. For example, if a file is not found, the caller might prompt the user to provide a different file path.
+  + **External Resources:** When dealing with resources like files, databases, or network connections that might fail but can be retried.
+  + **Mandatory Handling:** If you want to force the caller to handle the exception, use a checked exception.
+
+  _**Un-checked Exceptions:**_
+  + **Programming Errors:** Use unchecked exceptions for errors that are due to programming mistakes. These are typically bugs that should be fixed in the code rather than handled at runtime.
+  + **Runtime Conditions:** Situations that are not expected to be recovered from, such as accessing an invalid array index or passing a null argument where it is not allowed.
+  + **Optional Handling:** If you don’t want to force the caller to handle the exception, use an unchecked exception.
   
   Ref: https://stackoverflow.com/questions/499437/in-java-when-should-i-create-a-checked-exception-and-when-should-it-be-a-runti?noredirect=1&lq=1
-  
+
   Ref: https://stackoverflow.com/questions/27578/when-to-choose-checked-and-unchecked-exceptions
   
 </details>
