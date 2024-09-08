@@ -499,6 +499,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <summary>Record patterns</summary>
   <br/>
   Key features:
+  
   + **Enhanced instanceof:** You can use pattern matching within instanceof checks to extract fields from records directly.
 
   ```
@@ -565,5 +566,15 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <br/>
 
   ![](images/vitural_threads.png)
+
+  Three terms are defined as:
+
+  + **Platform thread:** The Java wrapper for an Operating System (OS) thread that is scheduled by the thread scheduler of the OS.
+  + **Virtual Thread:** A lightweight abstraction of a task that can be bound (called "mounting" in Java 21) to a platform thread and is scheduled by the Java virtual thread scheduler.
+  + **Carrier thread:** The platform thread on which a virtual thread is mounted.
+
+  **When to use Virtual Threads:**
+
+  
   
 </details>
