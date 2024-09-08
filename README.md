@@ -493,6 +493,27 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 ## New features
 
 ### Java 8
+
+<details>
+  <summary>Default and Static Methods in Interfaces</summary>
+  <br/>
+  
+  + Interfaces can now contain default and static methods.
+  + Provides a way to add new methods to existing interfaces without breaking compatibility.
+
+  ```
+  interface Drawable {
+      void draw();
+  
+      default void drawWithBorder() {
+          draw();
+          System.out.println("Drawing border");
+      }
+  }
+  ```
+  
+</details>
+
 ### Java 11
 ### Java 21
 <details>
