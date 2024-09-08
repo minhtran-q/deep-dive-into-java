@@ -558,7 +558,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
 </details>
 <details>
-  <summary>Sequenced Collections</summary>
+  <summary>Virtual Threads</summary>
   <br/>
   
   
