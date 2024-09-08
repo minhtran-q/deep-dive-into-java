@@ -575,7 +575,22 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 
   **When to use Virtual Threads:**
 
-  + **I/O-Bound Tasks:** Virtual threads are comfortable for tasks that spend a lot of time waiting for I/O operations, such as reading from or writing to a _database_, making HTTP requests, or interacting with file systems.
+  + **I/O-Operation Tasks:** Virtual threads are comfortable for tasks that spend a lot of time waiting for I/O operations, such as reading from or writing to a _database_, making HTTP requests, or interacting with file systems.
   + **High Concurrency:** If your application needs to handle a large number of concurrent tasks.
+
+  _Example:_
+
+  ```
+  \\ ExecutorService executor = Executors.newFixedThreadPool(10);
+  ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
+  for (URI uri : uris) {
+      executor.submit(() -> {
+          // Handle HTTP request
+      });
+  }
+  executor.shutdown();
+  ```
+
+  In this example, When a thread is blocked (e.g., waiting for an I/O operation), it still consumes system resources. But Virtual threads can be parked and unparked efficiently by the Java runtime, freeing up resources while waiting for I/O operations to complete.
   
 </details>
