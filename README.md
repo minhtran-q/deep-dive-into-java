@@ -565,6 +565,8 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <summary>Virtual Threads</summary>
   <br/>
 
+  Virtual threads are a feature introduced in Java 21 to simplify and enhance the handling of high-concurrency applications.
+
   ![](images/vitural_threads.png)
 
   Three terms are defined as:
@@ -575,6 +577,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 
   **When to use Virtual Threads:**
 
+  + **Increased Throughput:** Virtual threads can handle a large number of concurrent tasks efficiently.
   + **I/O-Operation Tasks:** Virtual threads are comfortable for tasks that spend a lot of time waiting for I/O operations, such as reading from or writing to a _database_, making HTTP requests, or interacting with file systems.
   + **High Concurrency:** If your application needs to handle a large number of concurrent tasks.
 
