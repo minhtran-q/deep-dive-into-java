@@ -564,6 +564,6 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <summary>Virtual Threads</summary>
   <br/>
 
-  ![](images/virtual_threads.png)
+  ![](images/vitural_threads.png)
   
 </details>
