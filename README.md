@@ -474,7 +474,51 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
   Ref: https://www.baeldung.com/java-mutex
 </details>
+
+<details>
+  <summary>Immutable class</summary>
+  <br/>
+  Immutability is a concept where an object’s state cannot be modified after it is created. This is particularly useful in concurrent programming.
+
+  _Creating an Immutable Class in Java_
+  + Declare the Class as Final
+  + Make Fields Private and Final
+  + No Setter Methods
+  + Initialize All Fields in the Constructor
+  + Return Copies of Mutable Fields
+
+  _Example:_
+
+  ```
+  public final class ImmutableClass {
+    private final int value;
+    private final String name;
+    private final List<String> items;
+
+    public ImmutableClass(int value, String name, List<String> items) {
+        this.value = value;
+        this.name = name;
+        // Create a new list to ensure the original list is not modified
+        this.items = new ArrayList<>(items);
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<String> getItems() {
+        // Return a copy of the list to prevent modification
+        return new ArrayList<>(items);
+    }
+  }
+  ```
   
+</details>
+
 ## Exception Handling
 ### Checked exception & Unchecked exception
 
