@@ -516,7 +516,29 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 <details>
   <summary>Stream API</summary>
   <br/>
-  
+
+  **Intermediate Operations:** Operations transform a stream into another stream and are lazy, meaning they are not executed until a terminal operation is invoked.
+  + `map`: Transforms each element.
+  + `filter`: Selects elements based on a predicate.
+  + `sorted`: Sorts the elements.
+  + `distinct`: Removes duplicates.
+
+  **Terminal Operations:** Operations produce a result.
+  + `forEach`: Performs an action for each element.
+  + `collect`: Converts the stream into a collection.
+  + `reduce`: Aggregates elements into a single result.
+
+  _Parallel Streams:_
+
+  Streams can be processed in parallel to leverage multi-core processors.
+
+  ```
+  List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+  int sum = numbers.parallelStream()
+                   .filter(n -> n % 2 == 0)
+                   .mapToInt(Integer::intValue)
+                   .sum();
+  ```
 </details>
 <details>
   <summary>Optional Class</summary>
