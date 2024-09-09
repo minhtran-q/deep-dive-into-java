@@ -68,6 +68,19 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   
 </details>
 
+<details>
+  <summary>Optimize Java applications</summary>
+  <br/>
+  
+  + Efficient Data Structures - For example, use `ArrayList` for accessing rather than insertions/deletions, use `LinkedList` if have frequent insertions/deletions and less frequent access.
+  + Optimize I/O Operations - Use BufferedReader and BufferedWriter for reading and writing text files.
+  + Optimize SQL Queries
+  + Cache Results
+  + Use Asynchronous Processing
+
+</details>
+
+
 ## SOLID
 
 <details>
