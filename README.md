@@ -509,6 +509,17 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
 </details>
 
+<details>
+  <summary>Best practices for exception handling</summary>
+  <br/>
+
+  + Use Specific Exception Classes - This makes your code more readable and allows for more exact error handling.
+  + Catch Exceptions at the Right Level
+  + Avoid Empty Catch Blocks
+  + Log Exceptions Consistently
+  
+</details>
+
 ## New features
 
 ### Java 8
