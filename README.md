@@ -813,6 +813,30 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
       }
   }
   ```
+</details>
+
+<details>
+  <summary>How does a HashMap work internally?</summary>
+  <br/>
+
+  + When you insert a key-value pair into a HashMap, the key is passed through a hash function. This function converts the key into a hash code, so thay why with custom object, we have to orverride the `hashCode` & `equalsTo` method. 
+  + The hash code is then used to determine the index in the underlying array where the value should be stored. With formula: _index = hashCode % arrayLength_.
+  
+</details>
+
+<details>
+  <summary>How do you synchronize a collection in Java?</summary>
+  <br/>
+
+  ```
+  List<String> synchronizedList = Collections.synchronizedList(new ArrayList<>());
+
+  Set<String> synchronizedSet = Collections.synchronizedSet(new HashSet<>());
+
+  Map<String, String> synchronizedMap = Collections.synchronizedMap(new HashMap<>());
+
+  List<String> cowList = new CopyOnWriteArrayList<>();
+  ```
   
 </details>
 
