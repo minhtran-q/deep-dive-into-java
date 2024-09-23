@@ -590,8 +590,8 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   + `filter`: Selects elements based on a predicate.
   + `sorted`: Sorts the elements.
   + `distinct`: Removes duplicates.
-  + `peek`: 
-  + `limit`:  
+  + `peek`: Used for debugging and observing the elements 
+  + `limit`: Limit the number of elements
   + `skip`: Skips the first n elements.
   + `takeWhile`: Takes elements if the predicate is true.
   + `dropWhile`: Drops elements if the predicate is true.
