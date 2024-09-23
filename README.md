@@ -717,7 +717,28 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 
   IntStream intStream = Arrays.stream(array);
   ```
-  
+</details>
+<details>
+  <summary>Convert List to Map</summary>
+  <br/>
+
+  **List Object to Map:**
+  ```
+  Map<String, Integer> map = people.stream()
+            .collect(Collectors.toMap(
+                Person::getName, // Key mapper
+                Person::getAge   // Value mapper
+            ));
+  ```
+  **Handling duplicate keys:**
+  ```
+  Map<String, Integer> map = list.stream()
+    .collect(Collectors.toMap(
+        Function.identity(), // Key mapper
+        String::length,      // Value mapper
+        (existing, replacement) -> existing // Merge function
+    ));
+  ```
 </details>
 
 ### Collections
