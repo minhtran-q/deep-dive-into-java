@@ -586,14 +586,25 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 
   **Intermediate Operations:** Operations transform a stream into another stream and are lazy, meaning they are not executed until a terminal operation is invoked.
   + `map`: Transforms each element.
+  + `flatMap`: Transforms each element into a stream and flattens the resulting streams into a single stream.
   + `filter`: Selects elements based on a predicate.
   + `sorted`: Sorts the elements.
   + `distinct`: Removes duplicates.
+  + `peek`: 
+  + `limit`:  
+  + `skip`: Skips the first n elements.
+  + `takeWhile`: Takes elements if the predicate is true.
+  + `dropWhile`: Drops elements if the predicate is true.
 
   **Terminal Operations:** Operations produce a result.
   + `forEach`: Performs an action for each element.
   + `collect`: Converts the stream into a collection.
   + `reduce`: Aggregates elements into a single result.
+  + `findFirst`: Returns the first element of the stream, if present.
+  + `findAny`: Returns any element of the stream, if present.
+  + `count`: Count of elements.
+  + `match`: Returns true if match the predicate. (`anyMatch`, `allMatch`, `noneMatch`)
+  + `min` & `max`: Returns the minimum or maximum element.
 
  _Note:_ Operations are lazy, meaning they are not executed until a terminal operation is invoked.
 
