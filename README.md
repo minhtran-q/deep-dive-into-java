@@ -616,7 +616,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 
 </details>
 <details>
-  <summary>Sort in Stream</summary>
+  <summary>Sorting in Stream</summary>
   <br/>
   
   _Sorting integer:_
