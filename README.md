@@ -595,11 +595,13 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   + `collect`: Converts the stream into a collection.
   + `reduce`: Aggregates elements into a single result.
 
+ _Note:_ Operations are lazy, meaning they are not executed until a terminal operation is invoked.
+
 </details>
 <details>
   <summary>Parallel Streams</summary>
   <br/>
-
+  
   Streams can be processed in parallel to leverage multi-core processors.
 
   ```
@@ -608,6 +610,27 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
                    .filter(n -> n % 2 == 0)
                    .mapToInt(Integer::intValue)
                    .sum();
+  ```
+
+  By default number of threads used by parallel streams is determined by the `ForkJoinPool.commonPool()`. This pool typically has one less thread than the number of available processors. For example, system has 8 processors, the common pool will have 7 threads.
+
+</details>
+<details>
+  <summary>Sort in Stream</summary>
+  <br/>
+  
+  _Sorting integer:_
+  ```
+  List<Integer> numbers = Arrays.asList(5, 3, 8, 1, 9);
+  List<Integer> sortedNumbers = numbers.stream()
+                                       .sorted()
+                                       .collect(Collectors.toList());
+  ```
+  _Sorting date:_
+  ```
+  List<Person> sortedPeople = people.stream()
+                                  .sorted(Comparator.comparing(Person::getBirthDate))
+                                  .collect(Collectors.toList());
   ```
 </details>
 
