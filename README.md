@@ -657,6 +657,8 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   ```
 </details>
 
+### Collections
+
 ## New features
 
 ### Java 8
