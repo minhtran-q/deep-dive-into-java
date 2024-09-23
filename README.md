@@ -743,6 +743,33 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 
 ### Collections
 
+<details>
+  <summary>What is the difference between ArrayList and LinkedList?</summary>
+  <br/>
+
+  + Use `ArrayList` if you need fast access to elements and your application involves more read operations.
+  + Use `LinkedList` if your application involves a lot of insertions and deletions.
+  
+</details>
+
+<details>
+  <summary>What is the difference between HashSet and TreeSet?</summary>
+  <br/>
+
+  **HashSet:**
+  + Does not guarantee any order of the elements.
+  + Allows one null element.
+  + Suitable when you need a high-performance set without any ordering.
+
+  **TreeSet:**
+  + Maintains elements in a sorted order.
+  + Does not allow null elements.
+  + Suitable when you need a sorted set.
+  
+</details>
+
+
+
 ## New features
 
 ### Java 8
