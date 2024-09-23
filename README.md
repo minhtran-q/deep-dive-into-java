@@ -744,7 +744,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 ### Collections
 
 <details>
-  <summary>What is the difference between ArrayList and LinkedList?</summary>
+  <summary>ArrayList vs LinkedList</summary>
   <br/>
 
   + Use `ArrayList` if you need fast access to elements and your application involves more read operations.
@@ -753,7 +753,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 </details>
 
 <details>
-  <summary>What is the difference between HashSet and TreeSet?</summary>
+  <summary>HashSet vs TreeSet</summary>
   <br/>
 
   **HashSet:**
@@ -765,10 +765,56 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   + Maintains elements in a sorted order.
   + Does not allow null elements.
   + Suitable when you need a sorted set.
+
+  ```
+  class NameComparator implements Comparator<Person> {
+      @Override
+      public int compare(Person p1, Person p2) {
+          return p1.getName().compareTo(p2.getName());
+      }
+  }
+  ```
+  _Implement Comparator before using TreeSet._
   
 </details>
+<details>
+  <summary>ConcurrentHashMap vs HashMap</summary>
+  <br/>
 
+  + **Thread Safety:** `HashMap` is not thread-safe, while `ConcurrentHashMap` is designed for concurrent access.
+  + **Performance:** `HashMap` is faster in single-threaded environments, but `ConcurrentHashMap` performs better in multi-threaded scenarios.
+  + **Null Handling:** `HashMap` allows null keys and values; `ConcurrentHashMap` does not.
+  
+</details>
+<details>
+  <summary>Comparable vs Comparator</summary>
+  <br/>
 
+  **Comparable**: `Comparable` provides a single sorting sequence. This means you can sort the collection based on one attribute, such as `id`, `name`, or `price`.
+  ```
+  class Student implements Comparable<Student> {
+    int rollno;
+    String name;
+    int age;
+
+    ...
+
+    public int compareTo(Student st) {
+        return this.age - st.age;
+    }
+  }
+  ```
+
+  **Comparator**: `Comparator` provides multiple sorting sequences. This means you can sort the collection based on multiple attributes, such as `id`, `name`, or `price`.
+  ```
+  class NameComparator implements Comparator<Student> {
+      public int compare(Student s1, Student s2) {
+          return s1.name.compareTo(s2.name);
+      }
+  }
+  ```
+  
+</details>
 
 ## New features
 
