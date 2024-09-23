@@ -633,6 +633,29 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
                                   .collect(Collectors.toList());
   ```
 </details>
+<details>
+  <summary>map() vs flatMap()</summary>
+  <br/>
+
+  `map()`: Transforms each element in the stream into another object.
+  ```
+  List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+  List<Integer> nameLengths = names.stream()
+                                   .map(String::length)
+                                   .collect(Collectors.toList());
+  ```
+
+  `flatMap()`: Transforms each element into a stream of objects and then flattens these streams into a single stream.
+  ```
+  List<List<String>> listOfLists = Arrays.asList(
+    Arrays.asList("Alice", "Bob"),
+    Arrays.asList("Charlie", "David")
+  );
+  List<String> flatList = listOfLists.stream()
+                                     .flatMap(List::stream)
+                                     .collect(Collectors.toList());
+  ```
+</details>
 
 ## New features
 
