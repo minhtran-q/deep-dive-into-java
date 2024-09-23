@@ -577,12 +577,11 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   
 </details>
 
-## New features
-
-### Java 8
+## Fundamental features
+### Stream APIs
 
 <details>
-  <summary>Stream API</summary>
+  <summary>Stream API Operations</summary>
   <br/>
 
   **Intermediate Operations:** Operations transform a stream into another stream and are lazy, meaning they are not executed until a terminal operation is invoked.
@@ -596,7 +595,10 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   + `collect`: Converts the stream into a collection.
   + `reduce`: Aggregates elements into a single result.
 
-  _Parallel Streams:_
+</details>
+<details>
+  <summary>Parallel Streams</summary>
+  <br/>
 
   Streams can be processed in parallel to leverage multi-core processors.
 
@@ -608,6 +610,11 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
                    .sum();
   ```
 </details>
+
+## New features
+
+### Java 8
+
 <details>
   <summary>Optional Class</summary>
   <br/>
