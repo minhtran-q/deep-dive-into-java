@@ -697,7 +697,27 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   Map<Boolean, List<Integer>> partitionedNumbers = numbers.stream()
       .collect(Collectors.partitioningBy(n -> n % 2 == 0));
   ```
+</details>
+<details>
+  <summary>Create a stream from an array</summary>
+  <br/>
+  
+  **Using** `Arrays.stream()`**:**
+  ```
+  String[] array = {"apple", "banana", "cherry"};
 
+  Stream<String> stream = Arrays.stream(array);
+  // or 
+  Stream<String> stream = Stream.of(array);
+  ```
+
+  **For Primitive Arrays:**
+  ```
+  int[] array = {1, 2, 3, 4, 5};
+
+  IntStream intStream = Arrays.stream(array);
+  ```
+  
 </details>
 
 ### Collections
