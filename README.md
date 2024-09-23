@@ -581,7 +581,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 ### Stream APIs
 
 <details>
-  <summary>Stream API Operations</summary>
+  <summary>Stream API operations</summary>
   <br/>
 
   **Intermediate Operations:** Operations transform a stream into another stream and are lazy, meaning they are not executed until a terminal operation is invoked.
