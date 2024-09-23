@@ -667,6 +667,38 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
                                      .collect(Collectors.toList());
   ```
 </details>
+<details>
+  <summary>Group elements</summary>
+  <br/>
+
+  **Using** `Collectors.groupingBy`**:**
+  
+  ```
+  List<String> items = Arrays.asList("apple", "banana", "orange", "apple", "banana", "apple");
+
+  Map<String, Long> groupedItems = items.stream()
+      .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+  ```
+
+  **Using** Collectors.groupingBy **with a downstream collector: **
+
+  ```
+  List<String> items = Arrays.asList("apple", "banana", "orange", "apple", "banana", "apple");
+
+  Map<String, List<String>> groupedItems = items.stream()
+      .collect(Collectors.groupingBy(Function.identity(), Collectors.toList()));
+  ```
+
+  **Using** `Collectors.partitioningBy`**:**
+
+  ```
+  List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+  Map<Boolean, List<Integer>> partitionedNumbers = numbers.stream()
+      .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+  ```
+
+</details>
 
 ### Collections
 
