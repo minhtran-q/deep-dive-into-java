@@ -104,10 +104,32 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
 ## Java I/O
 
 ### Serialization
-
-
+<details>
+  <summary>What is serialization and why is it important?</summary>
+  <br/>
+  
+</details>
+<details>
+  <summary>How does serialization work in Java?</summary>
+  <br/>
+  
+</details>
+<details>
+  <summary>Role of the serialVersionUID field</summary>
+  <br/>
+  
+</details>
 ### File handling
-
+<details>
+  <summary>BufferedInputStream vs FileInputStream</summary>
+  <br/>
+  
+</details>
+<details>
+  <summary>When should you use buffered streams?</summary>
+  <br/>
+  
+</details>
 
 ## SOLID
 
@@ -239,12 +261,15 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
 </details>
 
 ### Race condition
-`Race conditions` occur only if multiple threads are accessing the same resource, and one or more of the threads write to the resource. If multiple threads read the same resource `race conditions` do not occur.
 
-Two types of `race condition`:
-+ <details>
-  <summary>Read-modify-write</summary>
-  
+<details>
+  <summary>What is Race condition</summary>
+
+  `Race conditions` occur only if multiple threads are accessing the same resource, and one or more of the threads write to the resource. If multiple threads read the same resource `race conditions` do not occur.
+
+  Two types of `race condition`:
+  + Read-modify-write
+
   ```
   public class Counter {
        protected long count = 0;
@@ -255,11 +280,9 @@ Two types of `race condition`:
   }
   ```
   For example, two threads wanted to add values 2 and 3. Thus the result should be 5 after the two threads complete execution. In the above case it is 2, but it could as well have been 3.
-</details>
 
-+ <details>
-  <summary>Check-then-act</summary>
-  
+  + Check-then-act
+ 
   ```
   public class CheckThenActExample {
 
@@ -633,6 +656,24 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
     System.out.println(s); //hello
   }
   ```
+</details>
+
+### Future
+
+<details>
+  <summary>Join results with CompletableFuture</summary>
+  <br/>
+
+</details>
+<details>
+  <summary>Future vs CompletableFuture</summary>
+  <br/>
+
+</details>
+<details>
+  <summary>Handle exceptions in a Future task</summary>
+  <br/>
+
 </details>
 
 ### String
