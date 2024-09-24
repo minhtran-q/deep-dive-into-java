@@ -613,6 +613,34 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 
 </details>
 
+<details>
+  <summary>Passed by value</summary>
+  <br/>
+
+  In Java, all arguments are passed by value, including objects like `String`. This means that when you pass a String to a method, you’re passing a copy of the reference to the String object, not the actual object itself.
+
+  ```
+  public static String printString(String s) {
+    for(int i=0; i< 2; i++) {
+      s = s + String.valueOf(i);
+    }
+    return s;
+  }
+
+  public static void main(String[] args) {
+    String s = "hello";
+    String m = printString(s);
+    System.out.println(m); //hello01
+    System.out.println(s); //hello
+  }
+  ```
+
+</details>
+
+### String
+
+
+
 ### Stream APIs
 
 <details>
