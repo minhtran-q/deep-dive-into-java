@@ -94,6 +94,13 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   
 </details>
 
+<details>
+  <summary>Bridging The Gap Between The Java Memory Model And The Hardware Memory Architecture</summary>
+
+  ![](images/hardware.PNG)
+  
+</details>
+
 ## Java I/O
 
 ### Serialization
@@ -268,14 +275,6 @@ Two types of `race condition`:
       }
   }
   ```
-</details>
-  
-### Java memory model
-<details>
-  <summary>Bridging The Gap Between The Java Memory Model And The Hardware Memory Architecture</summary>
-
-  ![](images/hardware.PNG)
-  
 </details>
 
 ### Thread Signaling
