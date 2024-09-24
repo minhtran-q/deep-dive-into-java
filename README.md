@@ -606,10 +606,10 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <summary>Main principles OOP</summary>
   <br/>
 
-  Encapsulation: It involves bundling data and the methods that operate on that data. This helps to protect data from external access and modification.
-  Abstraction: It focuses on hiding the implementation details and showing only the essential features of an object.
-  Inheritance: It allows the child or subclass to inherit the fields and methods of the parent or superclass.
-  Polymorphism: It allows objects represent different data types.
+  + **Encapsulation:** It involves bundling data and the methods that operate on that data. This helps to protect data from external access and modification.
+  + **Abstraction:** It focuses on hiding the implementation details and showing only the essential features of an object.
+  + **Inheritance:** It allows the child or subclass to inherit the fields and methods of the parent or superclass.
+  + **Polymorphism:** It allows objects represent different data types.
 
 </details>
 
