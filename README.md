@@ -80,6 +80,27 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
 
 </details>
 
+### Memory Management
+
+<details>
+  <summary>What is garbage collection in Java</summary>
+  <br/>
+  
+</details>
+
+<details>
+  <summary>Stack memory and Heap memory</summary>
+  <br/>
+  
+</details>
+
+## Java I/O
+
+### Serialization
+
+
+### File handling
+
 
 ## SOLID
 
