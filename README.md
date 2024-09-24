@@ -634,12 +634,31 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
     System.out.println(s); //hello
   }
   ```
-
 </details>
 
 ### String
 
+<details>
+  <summary>String literals vs String objects</summary>
+  <br/>
 
+  **String Literals:** `String s1 = "Hello";`
+  + Stored in the string pool, a special memory area in the heap.
+  + Generally faster due to the reuse of existing objects in the string pool.
+
+  **String Objects:** `String s2 = new String("Hello");`
+  + Stored in the heap, outside the string pool.
+  + Slightly slower due to the creation of a new object every time.
+
+</details>
+
+<details>
+  <summary>String, StringBuilder, and StringBuffer</summary>
+  <br/>
+
+  
+
+</details>
 
 ### Stream APIs
 
