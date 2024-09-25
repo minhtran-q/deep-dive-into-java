@@ -696,10 +696,63 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <summary>Future vs CompletableFuture</summary>
   <br/>
 
+  **CompletableFuture:** 
+  + Extends the `Future` interface with additional methods for more flexible and powerful asynchronous programming.
+  + It provides non-blocking methods like `thenApply()`, `thenAccept()`, and `thenCompose()`.
+  + It provides methods like `exceptionally()` and `handle()` to handle exceptions.
+  
 </details>
 <details>
-  <summary>Handle exceptions in a Future task</summary>
+  <summary>Handle exceptions in a CompletableFuture task</summary>
   <br/>
+
+  `exceptionally()`**:**
+  ```
+  CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+    if (true) { // Simulating an exception
+        throw new RuntimeException("Something went wrong!");
+    }
+    return "Success!";
+  });
+  
+  future.exceptionally(ex -> "An error occurred: " + ex.getMessage())
+        .thenAccept(System.out::println);
+  ```
+
+  `handle()`**:**
+  ```
+  CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+    if (true) { // Simulating an exception
+        throw new RuntimeException("Something went wrong!");
+    }
+    return "Success!";
+  });
+
+  future.handle((result, ex) -> {
+      if (ex != null) {
+          return "An error occurred: " + ex.getMessage();
+      }
+      return result;
+  }).thenAccept(System.out::println);
+  ```
+
+  `whenComplete()`**:**
+  ```
+  CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+    if (true) { // Simulating an exception
+        throw new RuntimeException("Something went wrong!");
+    }
+    return "Success!";
+  });
+
+  future.whenComplete((result, ex) -> {
+      if (ex != null) {
+          System.out.println("An error occurred: " + ex.getMessage());
+      } else {
+          System.out.println(result);
+      }
+  });
+  ```
 
 </details>
 
