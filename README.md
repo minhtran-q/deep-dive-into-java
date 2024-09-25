@@ -670,7 +670,26 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <summary>Join results with CompletableFuture</summary>
   <br/>
 
-  
+  To join results with `CompletableFuture`, you can use the `allOf()` method to wait for multiple futures to complete and then combine their results
+
+  ```
+    public static void main(String[] args) {
+        CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> "Result 1");
+        CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> "Result 2");
+        CompletableFuture<String> future3 = CompletableFuture.supplyAsync(() -> "Result 3");
+
+        // void function
+        CompletableFuture<Void> allOf = CompletableFuture.allOf(future1, future2, future3);
+
+        // return type function
+        CompletableFuture<List<String>> allResults = allOf.thenApply(v -> 
+            List.of(future1, future2, future3).stream()
+                .map(CompletableFuture::join)
+                .collect(Collectors.toList())
+        );
+        allResults.thenAccept(results -> results.forEach(System.out::println));
+    }
+  ```
 
 </details>
 <details>
@@ -704,9 +723,9 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <summary>String, StringBuilder, and StringBuffer</summary>
   <br/>
 
-  **String:** Since String is immutable, it is inherently thread-safe.
-  **StringBuilder:** `StringBuilder` is not synchronized, making it faster but not safe for use by multiple threads simultaneously.
-  **StringBuffer:** `StringBuffer` is synchronized, meaning it is safe to use in multi-threaded environments but is slower than `StringBuilder`.
+  + **String:** Since String is immutable, it is inherently thread-safe.
+  + **StringBuilder:** `StringBuilder` is not synchronized, making it faster but not safe for use by multiple threads simultaneously.
+  + **StringBuffer:** `StringBuffer` is synchronized, meaning it is safe to use in multi-threaded environments but is slower than `StringBuilder`.
 
 </details>
 
