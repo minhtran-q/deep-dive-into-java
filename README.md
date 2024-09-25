@@ -119,6 +119,7 @@ The Java ClassLoader is a part of the Java Runtime Environment that dynamically 
   <br/>
   
 </details>
+
 ### File handling
 <details>
   <summary>BufferedInputStream vs FileInputStream</summary>
