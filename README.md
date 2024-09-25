@@ -1,7 +1,13 @@
 # Deep dive into java
 ## JVM
 ### ClassLoader
-The Java ClassLoader is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine. Java classes aren’t loaded into memory all at once, but when required by an application. 
+<details>
+  <summary>What is ClassLoaders</summary>
+  <br/>
+
+  The Java ClassLoader is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine. Java classes aren’t loaded into memory all at once, but when required by an application. 
+
+</details>
 
 <details>
   <summary>Types of ClassLoaders</summary>
