@@ -703,7 +703,9 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <summary>String, StringBuilder, and StringBuffer</summary>
   <br/>
 
-  
+  **String:** Since String is immutable, it is inherently thread-safe.
+  **StringBuilder:** `StringBuilder` is not synchronized, making it faster but not safe for use by multiple threads simultaneously.
+  **StringBuffer:** `StringBuffer` is synchronized, meaning it is safe to use in multi-threaded environments but is slower than `StringBuilder`.
 
 </details>
 
