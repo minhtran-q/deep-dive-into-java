@@ -2,7 +2,7 @@
 ## JVM
 ### ClassLoader
 <details>
-  <summary>What is ClassLoaders</summary>
+  <summary>What is ClassLoader</summary>
   <br/>
 
   The Java ClassLoader is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine. Java classes aren’t loaded into memory all at once, but when required by an application. 
@@ -264,7 +264,6 @@
   <br/>
   
   ![](images/concurrency-parallel.PNG)
-  
 </details>
 
 ### Race condition
@@ -670,6 +669,8 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 <details>
   <summary>Join results with CompletableFuture</summary>
   <br/>
+
+  
 
 </details>
 <details>
