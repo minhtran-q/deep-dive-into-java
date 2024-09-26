@@ -97,6 +97,18 @@
 <details>
   <summary>Stack memory and Heap memory</summary>
   <br/>
+
+  **Stack Memory:**
+  + Used for static memory allocation and the execution of threads.
+  + Stores method calls, local variables, and references to objects in the heap.
+  + Managed automatically by the JVM.
+  + Stack memory is allocated per thread.
+
+  **Heap Memory:**
+  + Used for dynamic memory allocation.
+  + Stores all Java objects and JRE classes.
+  + Managed by the JVM’s garbage collector.
+  + Heap memory is shared among all threads.
   
 </details>
 
