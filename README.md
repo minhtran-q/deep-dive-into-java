@@ -156,7 +156,7 @@
   <summary>Single responsibility principle</summary>
   <br/>
   
-  A class should only have one responsibility
+  **Definition:** A class should have one job or responsibility.
   
   _Example:_ The `EntityManager` interface provides a set of methods to persist, update, remove and read entities from a relational database. It doesn’t implement any business logic or validation or user authentication.
   
@@ -165,7 +165,7 @@
   <summary>Open for Extension, Closed for Modification principle</summary>
   <br/>
   
-  Classes should be open for extension but closed for modification.
+  **Definition:** Classes should be open for extension but closed for modification. This means you should be able to add new functionality without changing existing code.
 
   _Example:_
   ```
@@ -173,21 +173,29 @@
       void processPayment(Order order);
   }
   
-  public class PayPalPaymentProcessor implements PaymentProcessor {
-      // Implementation for PayPal
+  public class CashPaymentProcessor implements PaymentProcessor {
+      // Implementation for Cash
   }
   
   public class CreditCardPaymentProcessor implements PaymentProcessor {
       // Implementation for credit card
   }
   ```
-  By using an interface `PaymentProcessor`, we can introduce new payment methods without modifying the `Order` class.
+
+  We have an interface `PaymentProcessor` with a method `processPayment(Order order)`. This interface defines a contract for processing payments, but it doesn’t specify how the payment should be processed. We then have two classes, `CashPaymentProcessor` and `CreditCardPaymentProcessor`, that implement the `PaymentProcessor` interface.
+
+  In this example:
+  + The `PaymentProcessor` interface is **closed for modification** because `PaymentProcessor` doesn’t need to change when we define a new types of `PaymentProcessor`.
+  + The system is **open for extension** because you can create new classes that implement the `PaymentProcessor` interface, such as `MobilePaymentProcessor` without altering the existing `CashPaymentProcessor` or `CreditCardPaymentProcessor`.
+  
 </details>
 <details>
   <summary>Liskov Substitution principle</summary>
   <br/>
-  
-  If class A is a subtype of class B, we should be able to replace B with A without disrupting the behavior of our program.
+
+  Definition: If class A is a subtype of class B, we should be able to replace B with A without disrupting the behavior of our program.
+
+  _Example:_ Based on above example, if `PaymentProcessor` is a class and there are two sub-classes `CashPaymentProcessor` & `CreditCardPaymentProcessor`. According to Liskov Substitution principle, we replace `PaymentProcessor` with `CashPaymentProcessor` or `CreditCardPaymentProcessor` without any issues and maintaining the program’s correctness.
   
   Signs of violation of the substitutions Liskov:
   + Overridden methods with unexpected behavior
@@ -200,7 +208,7 @@
   <summary>Interface segregation principle</summary>
   <br/>
   
-  Larger interfaces should be split into smaller ones to fit with multiple specific purposes.
+  **Definition:** Larger interfaces should be split into smaller interfaces to fit with multiple specific purposes.
   
   _Example:_ If only data manipulation (CRUD) is needed, we can use `CrudRepository`. And when we need to view pages, we can use `PagingAndSortingRepository`
   
@@ -214,37 +222,26 @@
   
   _Example:_ 
   
+  In this example, we define a `OrderService` uses `PaymentProcessor` to process `Order` 
+
   ```
-  // Low-level module (concrete implementation)
-  public class FileLogger implements Logger {
-      public void log(String message) {
-          // Write message to a file
-      }
-  }
-  ```
-  ```
-  // Abstraction
-  public interface Logger {
-      void log(String message);
-  }
-  ```
-  ```
-  // High-level module
-  public class OrderProcessor {
-      private Logger logger;
+  public class OrderService {
+      private PaymentProcessor paymentProcessor;
   
-      public OrderProcessor(Logger logger) {
-          this.logger = logger;
+      public OrderService(PaymentProcessor paymentProcessor) {
+          this.paymentProcessor = paymentProcessor;
       }
   
       public void processOrder(Order order) {
-          // ... process order
-          logger.log("Order processed successfully");
+          paymentProcessor.processPayment(order);
       }
   }
   ```
-+ **Dependency Inversion:** Instead of `OrderProcessor` directly depending on `FileLogger`, it depends on the `Logger` interface.
-+ **Abstraction:** Both `OrderProcessor` and `FileLogger` depend on the `Logger` abstraction.
+  In this case, **High-Level Module** is `OrderService`, **Low-Level Modules** are `CashPaymentProcessor` and `CreditCardPaymentProcessor`, **Abstraction** is `PaymentProcessor`
+
+  + **High-level modules should not depend on low-level modules**: The `OrderService` class not depends on `CashPaymentProcessor` or `CreditCardPaymentProcessor`.
+  + **Both should depend on abstractions:** The `OrderService` class will depend on the `PaymentProcessor` interface. This means `OrderService` can work with any class that implements `PaymentProcessor` interface.
+  + **Low-Level Modules Depending on Abstraction:** The concrete classes `CashPaymentProcessor` and `CreditCardPaymentProcessor` implement the `PaymentProcessor` interface. They depend on the `PaymentProcessor` interface.
   
 </details>
 
