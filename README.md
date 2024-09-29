@@ -646,11 +646,16 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
   <summary>Main principles OOP</summary>
   <br/>
 
-  + **Encapsulation:** It involves bundling data and the methods that operate on that data. This helps to protect data from external access and modification.
+  + **Encapsulation:** It involves bundling data and the methods that operate on that data into a single unit or class. This helps to protect data from external access and modification.
   + **Abstraction:** It focuses on hiding the implementation details and showing only the essential features of an object.
   + **Inheritance:** It allows the child or subclass to inherit the fields and methods of the parent or superclass.
   + **Polymorphism:** It allows objects represent different data types.
 
+  _Example:_ Let’s use a example of a Car
+  + _Encapsulation:_ The car object has attributes like color, model, and speed, and methods like `startEngine()` and `startEngine()`. These attributes and methods are encapsulated within the car object. And we can only access the attributes or call the methods through access modifier.
+  + _Abstraction:_  You interact with the car through interface like calling the `startEngine()` method without needing to understand the complex mechanics inside the `startEngine()` method.
+  + _Inheritance:_ You can create a new class `ElectricCar` that inherits from the `Car` class. The `ElectricCar` class will have all the attributes and methods of the `Car` class, plus additional features like `batteryLevel`.
+  + _Polymorphism:_ Types of `Car` have the same `startEngine()` function, but `GasolineCar` and `ElectricCar` have their own and completely different `startEngine()` method. `GasolineCars` runs on gasoline and `ElectricCar` runs on electricity.
 </details>
 
 <details>
