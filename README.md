@@ -1108,7 +1108,7 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 
   Principles of functional interfaces:
   + **Single Abstract Method (SAM):** A functional interface must have only one abstract method.
-  + @FunctionalInterface Annotation
+  + **@FunctionalInterface Annotation**
   + **Default and Static Methods:** Functional interfaces can have any number of _default_ and _static_ methods.
 
   Java provides several built-in functional interfaces: 
