@@ -113,11 +113,44 @@
 </details>
 
 <details>
+  <summary>StackOverflowError vs OutOfMemoryError</summary>
+  <br/>
+
+  `StackOverflowError`
+  + Cause: This error occurs when the _stack memory_ allocated for a Java application is exhausted.
+  + Example: A recursive method without a base case
+
+  ```
+  public void recursiveMethod() {
+    recursiveMethod(); // No base case, leads to StackOverflowError
+  }
+  ```
+
+  `OutOfMemoryError`
+  + Cause: This error occurs when the _heap memory_ allocated for a Java application is exhausted. This can happen if the application creates too many objects or retains references to objects that are no longer needed, preventing garbage collection.
+  + Example: Creating a large number of objects without releasing them.
+
+  ```
+  public class MemoryLeak {
+      public static void main(String[] args) {
+          List<Object> list = new ArrayList<>();
+          while (true) {
+              list.add(new Object()); // Keeps adding objects to the list
+          }
+      }
+  }
+  ```
+  
+</details>
+
+<details>
   <summary>Bridging The Gap Between The Java Memory Model And The Hardware Memory Architecture</summary>
 
   ![](images/hardware.PNG)
   
 </details>
+
+
 
 ## Java I/O
 
