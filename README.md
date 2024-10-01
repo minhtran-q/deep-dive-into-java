@@ -1123,6 +1123,13 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 <details>
   <summary>Optional Class</summary>
   <br/>
+
+  **Purpose:** It helps in writing cleaner code by avoiding multiple null checks and making the code more readable.
+  **Methods:**
+  + `isPresent()`: Returns `true` if there is a value present, otherwise false.
+  + `get()`: Returns the value if present, otherwise throws `NoSuchElementException`.
+  + `orElse()`: Returns the value if present, otherwise returns a default value.
+  + `ifPresent()`: Executes a block of code if the value is present2.
   
 </details>
 
