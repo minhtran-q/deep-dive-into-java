@@ -523,6 +523,8 @@
   The current thread will first grab the monitor associated with the object stored in variable `foo` and hold it while it prints `"Hello world"`, then releases it.
   
 </details>
+
+### Synchronous
   
 ### Lock
 
