@@ -507,8 +507,8 @@
 <details>
   <summary>What is a monitor?</summary>
   <br/>
-  
-  Simply put, a _**monitor**_ is something that a thread can grab and hold, preventing all other threads from grabbing that same monitor and forcing them to wait until the monitor is released. 
+  + Every object in Java has an monitor lock associated with it. This lock is automatically acquired by a thread when it enters a synchronized block or method and released when it exits.
+  + Simply put, a _**monitor**_ is something that a thread can grab and hold, preventing all other threads from grabbing that same monitor and forcing them to wait until the monitor is released. 
 </details>
 <details>
   <summary>monitor vs synchronized keyword</summary>
