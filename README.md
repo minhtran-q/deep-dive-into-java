@@ -211,7 +211,19 @@
 <details>
   <summary>BufferedInputStream vs FileInputStream</summary>
   <br/>
-  
+
+  **FileInputStream**
+
+  + `FileInputStream` reads bytes directly from a file, one byte at a time.
+  + `FileInputStream` is generally slower because it reads one byte at a time.
+  + `FileInputStream` is used when you need to read raw bytes from a file such as images, audio files, ...
+
+  **BufferedInputStream**
+
+  + `BufferedInputStream` uses an internal buffer to read multiple bytes at once.
+  + `BufferedInputStream` is faster because it reads chunks of bytes into a buffer.
+  + `BufferedInputStream` is used when you need to read bytes efficiently, especially when reading large files
+
 </details>
 <details>
   <summary>When should you use buffered streams?</summary>
