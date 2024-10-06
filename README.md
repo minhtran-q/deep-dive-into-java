@@ -1202,6 +1202,31 @@ Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-j
 </details>
 
 ### Java 11
+
+<details>
+  <summary>New String Methods</summary>
+  <br/>
+
+  Java 11 adds a few new methods to the String class: `isBlank`, `lines`, `repeat`.
+  
+</details>
+
+<details>
+  <summary>The Not Predicate Method</summary>
+  <br/>
+
+  Java 11 adds a static not method has been added to the Predicate interface.
+
+  ```
+  List<String> sampleList = Arrays.asList("Java", "\n \n", "Kotlin", " ");
+  List withoutBlanks = sampleList.stream()
+    .filter(Predicate.not(String::isBlank))
+    .collect(Collectors.toList());
+  assertThat(withoutBlanks).containsExactly("Java", "Kotlin");
+  ```
+  
+</details>
+
 ### Java 21
 <details>
   <summary>Record patterns</summary>
