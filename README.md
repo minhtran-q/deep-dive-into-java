@@ -547,6 +547,21 @@
   _Example:_
 
   I have a `Map` that holds `Student` object and I use a `synchronized` block on a specific Student object retrieved by its ID. If thread 1 get student object by id 1 and enters the `synchronized` block, and thread 2 get student object by id 2, thread 2 still can enter the `synchronized` block they synchronize on different Student objects, they will not block each other.
+
+```
+public class StudentManager {
+    private final Map<Integer, Student> studentMap = new HashMap<>();
+
+    public void updateStudent(int id, String newName) {
+        Student student = getStudent(id);
+        if (student != null) {
+            synchronized (student) {
+                student.setName(newName);
+            }
+        }
+    }
+}
+```
   
 </details>
   
