@@ -177,6 +177,8 @@
   -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/path/to/dumpfile
   ```
   By default, it stores the dump in a java_pid<pid>.hprof file in the directory where we’re running the application.
+
+  Finally, we use tool like Eclipse Memory Analyzer to genarte Leak Suspects Report to analyze.
 </details>
 
 <details>
