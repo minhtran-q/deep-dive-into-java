@@ -144,13 +144,46 @@
 </details>
 
 <details>
+  <summary>Trace java.lang.OutOfMemoryError</summary>
+
+  To trace this issue, we can capture a heap dump. A heap dump is a snapshot of all the objects that are in memory in the JVM at a certain moment.
+
+  There are several ways to capture heap dumps.
+
+  + **jcmd**: We have to use it in the same machine where the Java process is running.
+
+  ```
+  jcmd <pid> GC.heap_dump <file-path>
+
+  //Ex: jcmd 12587 GC.heap_dump /tmp/dump.hprof
+  ```
+
+  + **jmap**: jmap is a tool to print statistics about memory in a running JVM. We can use it for local or remote processes.
+
+  ```
+  jmap -dump:[live],format=b,file=<file-path> <pid>
+
+  //Ex: jmap -dump:live,format=b,file=/tmp/dump.hprof 12587
+  ```
+  + `live:` if set, it only prints objects which have active references and discards the ones that are ready to be garbage collected. This parameter is optional.
+  + `format=b:` specifies that the dump file will be in binary format. If not set, the result is the same.
+  + `file:` the file where the dump will be written to
+  + `pid:` id of the Java process
+
+  You can configure the JVM to generate a heap dump automatically when an OutOfMemoryError occurs by adding the option to your JVM arguments:
+
+  ```
+  -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/path/to/dumpfile
+  ```
+  By default, it stores the dump in a java_pid<pid>.hprof file in the directory where we’re running the application.
+</details>
+
+<details>
   <summary>Bridging The Gap Between The Java Memory Model And The Hardware Memory Architecture</summary>
 
   ![](images/hardware.PNG)
   
 </details>
-
-
 
 ## Java I/O
 
