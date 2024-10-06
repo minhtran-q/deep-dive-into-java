@@ -523,7 +523,12 @@
   The current thread will first grab the monitor associated with the object stored in variable `foo` and hold it while it prints `"Hello world"`, then releases it.
   
 </details>
+<details>
+  <summary>What is thread-safe?</summary>
+  <br/>
 
+  Thread safety is a concept in concurrent programming that ensures shared resources are accessed and modified by multiple threads under controlling. It prevents issues such as race conditions, inconsistent results.
+</details>
 ### Synchronous
 
 <details>
