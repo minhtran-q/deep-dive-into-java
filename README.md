@@ -145,8 +145,9 @@
 
 <details>
   <summary>Trace java.lang.OutOfMemoryError</summary>
-
-  To trace this issue, we can capture a heap dump. A heap dump is a snapshot of all the objects that are in memory in the JVM at a certain moment.
+  <br/>
+  
+  To trace this issue, we can capture a **heap dump file**. A heap dump is a snapshot of all the objects that are in memory in the JVM at a certain moment.
 
   There are several ways to capture heap dumps.
 
