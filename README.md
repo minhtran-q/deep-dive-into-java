@@ -525,7 +525,23 @@
 </details>
   
 ### Lock
+
+<details>
+  <summary>Types of Lock</summary>
+  <br/>
+
+  **ReentrantLock**
+  + Allows the same thread to acquire the lock multiple times without causing a deadlock. (Each time the thread acquires the lock, a hold count is incremented, and each time it releases the lock, the hold count is decremented.)
+  + ReentrantLock can be configured to use a fairness policy. (When fairness is set to true, the lock favors granting access to the longest-waiting thread.)
+  + When you need to implement a fairness policy to prevent thread starvation. (When to Use ReentrantLock)
+
+  **ReadWriteLock:**
+  + **Read Lock:** Multiple threads can hold the read lock at a time as long as no thread holds the write lock.
+  + **Write Lock:** nly one thread can hold the write lock at a time, and no other thread can hold the read or write lock while the write lock is held.
+  + Ideal for situations where reads are much more frequent than writes, such as caching mechanisms (When to Use ReadWriteLock)
   
+</details>
+
 <details>
   <summary>Lock vs Synchronized Block</summary>
   <br/>
@@ -561,12 +577,8 @@
   5) Flexibility to try for lock without blocking.
   
   Cons:
-  1) wrapping method body inside `try-final` block
-
-Read more: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html#ixzz7QhMEYXjR
-  
-  Ref: https://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html#axzz7Qc6BsHhk
-  
+  1) Wrapping method body inside `try-final` block
+    
 </details>
 <details>
   <summary>ReadWriteLock vs ReentrantLock</summary>
