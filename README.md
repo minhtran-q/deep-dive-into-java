@@ -547,9 +547,16 @@
 <details>
   <summary>Lock vs Synchronized Block</summary>
   <br/>
-  
+
+  `synchronized`
+  + A synchronized block is fully contained within a method.
+  + It does not support fairness. Any thread can acquire the lock once it is released.
+  + If a thread cannot acquire the lock, it gets blocked until the lock is available.
+  + Threads waiting to enter a `synchronized` block cannot be interrupted.
+
+  `Lock`
   + _lock()_ & _unlock()_ operation in separate methods
-  + Support fairness by specifying the fairness property
+  + Support fairness by specifying the fairness policy
   + The Lock API provides _tryLock()_ method. This reduces blocking time of thread waiting for the lock
   + Provides _lockInterruptibly()_ which can be used to interrupt the thread when it's waiting for the lock
   
