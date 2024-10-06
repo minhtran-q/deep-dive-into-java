@@ -344,6 +344,24 @@
   The current thread will first grab the monitor associated with the object stored in variable `foo` and hold it while it prints `"Hello world"`, then releases it.
   
 </details>
+<details>
+  <summary>What is deadlock in java?</summary>
+  <br/>
+  
+  A deadlock occurs when two or more threads are blocked forever, each waiting for the other to release a lock. 
+
+  _Example:_
+
+  + `Thread 1` acquires `lock1` and then tries to acquire `lock2`.
+  + `Thread 2` acquires `lock2` and then tries to acquire `lock1`.
+
+  **Solution:**
+
+  + **Avoid Nested Locks:** Minimize the use of nested locks to reduce the risk of deadlocks.
+  + **Consistent Lock Ordering:** Ensure that all threads acquire locks in a consistent order.
+  + **Timeouts:** Implement timeouts for lock to prevent threads from waiting indefinitely.
+  
+</details>
 
 ### Concurrency vs Parallelism
 
