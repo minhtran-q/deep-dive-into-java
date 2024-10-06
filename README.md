@@ -525,6 +525,30 @@
 </details>
 
 ### Synchronous
+
+<details>
+  <summary>How it works</summary>
+  <br/>
+
+  The `synchronized` is used to control access to a block of code or an entire method, ensuring that only one thread can execute it at a time. 
+
+  **How it works**
+  + When a thread enters a synchronized block or method, it acquires a monitor lock on the specified object.
+  + If other threads attempting to enter the synchronized block, they will be blocked until the lock is released.
+
+</details>
+
+<details>
+  <summary>Object-Level Locking</summary>
+  <br/>
+
+  The synchronized locks on the object level allow to block on the specific object.
+
+  _Example:_
+
+  I have a `Map` that holds `Student` object and I use a `synchronized` block on a specific Student object retrieved by its ID. If thread 1 get student object by id 1 and enters the `synchronized` block, and thread 2 get student object by id 2, thread 2 still can enter the `synchronized` block they synchronize on different Student objects, they will not block each other.
+  
+</details>
   
 ### Lock
 
