@@ -598,7 +598,6 @@
   Ref: https://www.youtube.com/watch?v=7VqWkc9o7RM&ab_channel=DefogTech
 </details>
 
-  
 ### Semaphores
   A Semaphore in Java is a Thread Synchronization construct that controls access to the shared resource with the help of counters. 
   
