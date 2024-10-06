@@ -574,38 +574,6 @@
   + Ref: https://medium.com/@tarunjain07/volatile-reentrant-lock-vs-synchronize-condition-variable-66e870a8434d#2738
   
 </details>
-<details>
-  <summary>Pros & cons</summary>
-  <br/>
-  
-  Pros:
-  1) Ability to lock interruptibly.
-  2) Ability to timeout while waiting for lock.
-  3) Power to create fair lock.
-  4) API to get list of waiting thread for lock.
-  5) Flexibility to try for lock without blocking.
-  
-  Cons:
-  1) Wrapping method body inside `try-final` block
-    
-</details>
-<details>
-  <summary>ReadWriteLock vs ReentrantLock</summary>
-  <br/>
-  
-  **ReadWriteLock**:
-  + `ReadLock` and `WriteLock` though are 2 separate instances only 1 will be allowed at a time...
-  + Either `ReadLock` is being used _**(by n threads)**_ or `WriteLock` is being used _**(by 1 thread)**_
-  + But never both at same time
-  
-  **ReentrantLock**:
-  + One thread at a time
-  
-  
-  ![](images/ReadWriteLockvsReentrantLock.png)
-  
-  Ref: https://www.youtube.com/watch?v=7VqWkc9o7RM&ab_channel=DefogTech
-</details>
 
 ### Semaphores
   A Semaphore in Java is a Thread Synchronization construct that controls access to the shared resource with the help of counters. 
