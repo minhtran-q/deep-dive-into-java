@@ -527,16 +527,13 @@
 ### Lock
   
 <details>
-  <summary>Lock and Synchronized Block</summary>
+  <summary>Lock vs Synchronized Block</summary>
   <br/>
   
   + _lock()_ & _unlock()_ operation in separate methods
   + Support fairness by specifying the fairness property
   + The Lock API provides _tryLock()_ method. This reduces blocking time of thread waiting for the lock
   + Provides _lockInterruptibly()_ which can be used to interrupt the thread when it's waiting for the lock
-  
-  Ref: https://www.baeldung.com/java-concurrent-locks
-  Ref: https://winterbe.com/posts/2015/04/30/java8-concurrency-tutorial-synchronized-locks-examples/
   
 </details>
   
