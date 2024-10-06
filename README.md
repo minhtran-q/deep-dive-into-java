@@ -324,6 +324,26 @@
 
   Thread safety is a concept in concurrent programming that ensures shared resources are accessed and modified by multiple threads under controlling. It prevents issues such as race conditions, inconsistent results.
 </details>
+<details>
+  <summary>What is a monitor?</summary>
+  <br/>
+  
+  + Every object in Java has an monitor lock associated with it. This lock is automatically acquired by a thread when it enters a synchronized block or method and released when it exits.
+  + Simply put, a _**monitor**_ is something that a thread can grab and hold, preventing all other threads from grabbing that same monitor and forcing them to wait until the monitor is released. 
+</details>
+<details>
+  <summary>monitor vs synchronized keyword</summary>
+  <br/>
+  
+  ```
+  Object foo = new Object();
+  synchronized (foo) {
+    System.out.println("Hello world.");
+  }
+  ```
+  The current thread will first grab the monitor associated with the object stored in variable `foo` and hold it while it prints `"Hello world"`, then releases it.
+  
+</details>
 
 ### Concurrency vs Parallelism
 
@@ -512,27 +532,6 @@
   + Ref: https://ducmanhphan.github.io/2019-12-07-Using-wait-notify-in-synchronized-method-block-of-Multithreading-Java/
   + Ref: https://howtodoinjava.com/java/multi-threading/wait-notify-and-notifyall-methods/
   </details>
-
-### Java monitor
-<details>
-  <summary>What is a monitor?</summary>
-  <br/>
-  + Every object in Java has an monitor lock associated with it. This lock is automatically acquired by a thread when it enters a synchronized block or method and released when it exits.
-  + Simply put, a _**monitor**_ is something that a thread can grab and hold, preventing all other threads from grabbing that same monitor and forcing them to wait until the monitor is released. 
-</details>
-<details>
-  <summary>monitor vs synchronized keyword</summary>
-  <br/>
-  
-  ```
-  Object foo = new Object();
-  synchronized (foo) {
-    System.out.println("Hello world.");
-  }
-  ```
-  The current thread will first grab the monitor associated with the object stored in variable `foo` and hold it while it prints `"Hello world"`, then releases it.
-  
-</details>
 
 ### Synchronous
 
