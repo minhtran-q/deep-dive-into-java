@@ -902,6 +902,8 @@ public class StudentManager {
 
 </details>
 
+### Static
+
 ### String
 
 <details>
@@ -1191,6 +1193,8 @@ public class StudentManager {
 </details>
 
 ### Lambda
+
+
 
 ## New features
 
