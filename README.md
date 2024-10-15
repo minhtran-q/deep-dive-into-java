@@ -1190,6 +1190,8 @@ public class StudentManager {
   
 </details>
 
+### Lambda
+
 ## New features
 
 ### Java 8
