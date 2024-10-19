@@ -137,6 +137,12 @@
 
 ### Static
 
+<details>
+  <summary>What does "static" keyword mean?</summary>
+  <br/>
+
+</details>
+
 ### String
 
 <details>
