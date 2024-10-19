@@ -1,4 +1,432 @@
 # Deep dive into java
+
+## Fundamental features
+
+### Basic concepts
+
+<details>
+  <summary>Main principles OOP</summary>
+  <br/>
+
+  + **Encapsulation:** It involves bundling data and the methods into a single unit or class. This helps to protect data from external access and modification.
+  + **Abstraction:** It focuses on hiding the implementation details and showing only the essential features of an object.
+  + **Inheritance:** It allows the child or subclass to inherit the fields and methods of the parent or superclass.
+  + **Polymorphism:** It allows objects represent different data types.
+
+  _Example:_ Let’s use a example of a Car
+  + _Encapsulation:_ The car object has attributes like `color`, `model`, and `speed`, and methods like `startEngine()` and `stopEngine()`. These attributes and methods are encapsulated within the car object. And we can only access the attributes or call the methods through access modifier.
+  + _Abstraction:_  You interact with the car through interface like calling the `startEngine()` method without needing to understand the complex mechanics inside the `startEngine()` method.
+  + _Inheritance:_ You can create a new class `ElectricCar` that inherits from the `Car` class. The `ElectricCar` class will have all the attributes and methods of the `Car` class, plus additional features like `batteryLevel`.
+  + _Polymorphism:_ Types of `Car` have the same `startEngine()` function, but `GasolineCar` and `ElectricCar` have their own and completely different `startEngine()` method. `GasolineCars` runs on gasoline and `ElectricCar` runs on electricity.
+</details>
+
+<details>
+  <summary>Passed by value</summary>
+  <br/>
+
+  In Java, all arguments are passed by value, including objects like `String`. This means that when you pass a String to a method, you’re passing a copy of the reference to the String object, not the actual object itself.
+
+  ```
+  public static String printString(String s) {
+    for(int i=0; i< 2; i++) {
+      s = s + String.valueOf(i);
+    }
+    return s;
+  }
+
+  public static void main(String[] args) {
+    String s = "hello";
+    String m = printString(s);
+    System.out.println(m); //hello01
+    System.out.println(s); //hello
+  }
+  ```
+</details>
+
+### Future
+
+<details>
+  <summary>Join results with CompletableFuture</summary>
+  <br/>
+
+  To join results with `CompletableFuture`, you can use the `allOf()` method to wait for multiple futures to complete and then combine their results
+
+  ```
+    public static void main(String[] args) {
+        CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> "Result 1");
+        CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> "Result 2");
+        CompletableFuture<String> future3 = CompletableFuture.supplyAsync(() -> "Result 3");
+
+        // void function
+        CompletableFuture<Void> allOf = CompletableFuture.allOf(future1, future2, future3);
+
+        // return type function
+        CompletableFuture<List<String>> allResults = allOf.thenApply(v -> 
+            List.of(future1, future2, future3).stream()
+                .map(CompletableFuture::join)
+                .collect(Collectors.toList())
+        );
+        allResults.thenAccept(results -> results.forEach(System.out::println));
+    }
+  ```
+
+</details>
+<details>
+  <summary>Future vs CompletableFuture</summary>
+  <br/>
+
+  **CompletableFuture:** 
+  + Extends the `Future` interface with additional methods for more flexible and powerful asynchronous programming.
+  + It provides non-blocking methods like `thenApply()`, `thenAccept()`, and `thenCompose()`.
+  + It provides methods like `exceptionally()` and `handle()` to handle exceptions.
+  
+</details>
+<details>
+  <summary>Handle exceptions in a CompletableFuture task</summary>
+  <br/>
+
+  `exceptionally()`**:**
+  ```
+  CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+    if (true) { // Simulating an exception
+        throw new RuntimeException("Something went wrong!");
+    }
+    return "Success!";
+  });
+  
+  future.exceptionally(ex -> "An error occurred: " + ex.getMessage())
+        .thenAccept(System.out::println);
+  ```
+
+  `handle()`**:**
+  ```
+  CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+    if (true) { // Simulating an exception
+        throw new RuntimeException("Something went wrong!");
+    }
+    return "Success!";
+  });
+
+  future.handle((result, ex) -> {
+      if (ex != null) {
+          return "An error occurred: " + ex.getMessage();
+      }
+      return result;
+  }).thenAccept(System.out::println);
+  ```
+
+  `whenComplete()`**:**
+  ```
+  CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+    if (true) { // Simulating an exception
+        throw new RuntimeException("Something went wrong!");
+    }
+    return "Success!";
+  });
+
+  future.whenComplete((result, ex) -> {
+      if (ex != null) {
+          System.out.println("An error occurred: " + ex.getMessage());
+      } else {
+          System.out.println(result);
+      }
+  });
+  ```
+
+</details>
+
+### Static
+
+### String
+
+<details>
+  <summary>String literals vs String objects</summary>
+  <br/>
+
+  **String Literals:** `String s1 = "Hello";`
+  + Stored in the string pool, a special memory area in the heap.
+  + Generally faster due to the reuse of existing objects in the string pool.
+
+  **String Objects:** `String s2 = new String("Hello");`
+  + Stored in the heap, outside the string pool.
+  + Slightly slower due to the creation of a new object every time.
+
+</details>
+
+<details>
+  <summary>String, StringBuilder, and StringBuffer</summary>
+  <br/>
+
+  + **String:** Since String is immutable, it is inherently thread-safe.
+  + **StringBuilder:** `StringBuilder` is not synchronized, making it faster but not safe for use by multiple threads simultaneously.
+  + **StringBuffer:** `StringBuffer` is synchronized, meaning it is safe to use in multi-threaded environments but is slower than `StringBuilder`.
+
+</details>
+
+### Stream APIs
+
+<details>
+  <summary>Stream API operations</summary>
+  <br/>
+
+  **Intermediate Operations:** Operations transform a stream into another stream and are lazy, meaning they are not executed until a terminal operation is invoked.
+  + `map`: Transforms each element.
+  + `flatMap`: Transforms each element into a stream and flattens the resulting streams into a single stream.
+  + `filter`: Selects elements based on a predicate.
+  + `sorted`: Sorts the elements.
+  + `distinct`: Removes duplicates.
+  + `peek`: Used for debugging and observing the elements 
+  + `limit`: Limit the number of elements
+  + `skip`: Skips the first n elements.
+  + `takeWhile`: Takes elements if the predicate is true.
+  + `dropWhile`: Drops elements if the predicate is true.
+
+  **Terminal Operations:** Operations produce a result.
+  + `forEach`: Performs an action for each element.
+  + `collect`: Converts the stream into a collection.
+  + `reduce`: Aggregates elements into a single result.
+  + `findFirst`: Returns the first element of the stream, if present.
+  + `findAny`: Returns any element of the stream, if present.
+  + `count`: Count of elements.
+  + `match`: Returns true if match the predicate. (`anyMatch`, `allMatch`, `noneMatch`)
+  + `min` & `max`: Returns the minimum or maximum element.
+
+ _Note:_ Operations are lazy, meaning they are not executed until a terminal operation is invoked.
+
+</details>
+<details>
+  <summary>Parallel Streams</summary>
+  <br/>
+  
+  Streams can be processed in parallel to leverage multi-core processors.
+
+  ```
+  List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+  int sum = numbers.parallelStream()
+                   .filter(n -> n % 2 == 0)
+                   .mapToInt(Integer::intValue)
+                   .sum();
+  ```
+
+  By default number of threads used by parallel streams is determined by the `ForkJoinPool.commonPool()`. This pool typically has one less thread than the number of available processors. For example, system has 8 processors, the common pool will have 7 threads.
+
+</details>
+<details>
+  <summary>Sorting in Stream</summary>
+  <br/>
+  
+  _Sorting integer:_
+  ```
+  List<Integer> numbers = Arrays.asList(5, 3, 8, 1, 9);
+  List<Integer> sortedNumbers = numbers.stream()
+                                       .sorted()
+                                       .collect(Collectors.toList());
+  ```
+  _Sorting date:_
+  ```
+  List<Person> sortedPeople = people.stream()
+                                  .sorted(Comparator.comparing(Person::getBirthDate))
+                                  .collect(Collectors.toList());
+  ```
+</details>
+<details>
+  <summary>map() vs flatMap()</summary>
+  <br/>
+
+  `map()`: Transforms each element in the stream into another object.
+  ```
+  List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+  List<Integer> nameLengths = names.stream()
+                                   .map(String::length)
+                                   .collect(Collectors.toList());
+  ```
+
+  `flatMap()`: Transforms each element into a stream of objects and then flattens these streams into a single stream.
+  ```
+  List<List<String>> listOfLists = Arrays.asList(
+    Arrays.asList("Alice", "Bob"),
+    Arrays.asList("Charlie", "David")
+  );
+  List<String> flatList = listOfLists.stream()
+                                     .flatMap(List::stream)
+                                     .collect(Collectors.toList());
+  ```
+</details>
+<details>
+  <summary>Group elements</summary>
+  <br/>
+
+  **Using** `Collectors.groupingBy`**:**
+  
+  ```
+  List<String> items = Arrays.asList("apple", "banana", "orange", "apple", "banana", "apple");
+
+  Map<String, Long> groupedItems = items.stream()
+      .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+  ```
+
+  **Using** Collectors.groupingBy **with a downstream collector: **
+
+  ```
+  List<String> items = Arrays.asList("apple", "banana", "orange", "apple", "banana", "apple");
+
+  Map<String, List<String>> groupedItems = items.stream()
+      .collect(Collectors.groupingBy(Function.identity(), Collectors.toList()));
+  ```
+
+  **Using** `Collectors.partitioningBy`**:**
+
+  ```
+  List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+  Map<Boolean, List<Integer>> partitionedNumbers = numbers.stream()
+      .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+  ```
+</details>
+<details>
+  <summary>Create a stream from an array</summary>
+  <br/>
+  
+  **Using** `Arrays.stream()`**:**
+  ```
+  String[] array = {"apple", "banana", "cherry"};
+
+  Stream<String> stream = Arrays.stream(array);
+  // or 
+  Stream<String> stream = Stream.of(array);
+  ```
+
+  **For Primitive Arrays:**
+  ```
+  int[] array = {1, 2, 3, 4, 5};
+
+  IntStream intStream = Arrays.stream(array);
+  ```
+</details>
+<details>
+  <summary>Convert List to Map</summary>
+  <br/>
+
+  **List Object to Map:**
+  ```
+  Map<String, Integer> map = people.stream()
+            .collect(Collectors.toMap(
+                Person::getName, // Key mapper
+                Person::getAge   // Value mapper
+            ));
+  ```
+  **Handling duplicate keys:**
+  ```
+  Map<String, Integer> map = list.stream()
+    .collect(Collectors.toMap(
+        Function.identity(), // Key mapper
+        String::length,      // Value mapper
+        (existing, replacement) -> existing // Merge function
+    ));
+  ```
+</details>
+
+### Collections
+
+<details>
+  <summary>ArrayList vs LinkedList</summary>
+  <br/>
+
+  + Use `ArrayList` if you need fast access to elements and your application involves more read operations.
+  + Use `LinkedList` if your application involves a lot of insertions and deletions.
+  
+</details>
+
+<details>
+  <summary>HashSet vs TreeSet</summary>
+  <br/>
+
+  **HashSet:**
+  + Does not guarantee any order of the elements.
+  + Allows one null element.
+  + Suitable when you need a high-performance set without any ordering.
+
+  **TreeSet:**
+  + Maintains elements in a sorted order.
+  + Does not allow null elements.
+  + Suitable when you need a sorted set.
+
+  ```
+  class NameComparator implements Comparator<Person> {
+      @Override
+      public int compare(Person p1, Person p2) {
+          return p1.getName().compareTo(p2.getName());
+      }
+  }
+  ```
+  _Implement Comparator before using TreeSet._
+  
+</details>
+<details>
+  <summary>ConcurrentHashMap vs HashMap</summary>
+  <br/>
+
+  + **Thread Safety:** `HashMap` is not thread-safe, while `ConcurrentHashMap` is designed for concurrent access.
+  + **Performance:** `HashMap` is faster in single-threaded environments, but `ConcurrentHashMap` performs better in multi-threaded scenarios.
+  + **Null Handling:** `HashMap` allows null keys and values; `ConcurrentHashMap` does not.
+  
+</details>
+<details>
+  <summary>Comparable vs Comparator</summary>
+  <br/>
+
+  **Comparable**: `Comparable` provides a single sorting sequence. This means you can sort the collection based on one attribute, such as `id`, `name`, or `price`.
+  ```
+  class Student implements Comparable<Student> {
+    int rollno;
+    String name;
+    int age;
+
+    ...
+
+    public int compareTo(Student st) {
+        return this.age - st.age;
+    }
+  }
+  ```
+
+  **Comparator**: `Comparator` provides multiple sorting sequences. This means you can sort the collection based on multiple attributes, such as `id`, `name`, or `price`.
+  ```
+  class NameComparator implements Comparator<Student> {
+      public int compare(Student s1, Student s2) {
+          return s1.name.compareTo(s2.name);
+      }
+  }
+  ```
+</details>
+
+<details>
+  <summary>How does a HashMap work internally?</summary>
+  <br/>
+
+  + When you insert a key-value pair into a HashMap, the key is passed through a hash function. This function converts the key into a hash code, so thay why with custom object, we have to orverride the `hashCode` & `equalsTo` method. 
+  + The hash code is then used to determine the index in the underlying array where the value should be stored. With formula: _index = hashCode % arrayLength_.
+  
+</details>
+
+<details>
+  <summary>How do you synchronize a collection in Java?</summary>
+  <br/>
+
+  ```
+  List<String> synchronizedList = Collections.synchronizedList(new ArrayList<>());
+
+  Set<String> synchronizedSet = Collections.synchronizedSet(new HashSet<>());
+
+  Map<String, String> synchronizedMap = Collections.synchronizedMap(new HashMap<>());
+
+  List<String> cowList = new CopyOnWriteArrayList<>();
+  ```
+  
+</details>
+
+### Lambda
+
 ## JVM
 ### ClassLoader
 <details>
@@ -766,435 +1194,6 @@ public class StudentManager {
   + Log Exceptions Consistently
   
 </details>
-
-## Fundamental features
-
-### Basic concepts
-
-<details>
-  <summary>Main principles OOP</summary>
-  <br/>
-
-  + **Encapsulation:** It involves bundling data and the methods into a single unit or class. This helps to protect data from external access and modification.
-  + **Abstraction:** It focuses on hiding the implementation details and showing only the essential features of an object.
-  + **Inheritance:** It allows the child or subclass to inherit the fields and methods of the parent or superclass.
-  + **Polymorphism:** It allows objects represent different data types.
-
-  _Example:_ Let’s use a example of a Car
-  + _Encapsulation:_ The car object has attributes like `color`, `model`, and `speed`, and methods like `startEngine()` and `stopEngine()`. These attributes and methods are encapsulated within the car object. And we can only access the attributes or call the methods through access modifier.
-  + _Abstraction:_  You interact with the car through interface like calling the `startEngine()` method without needing to understand the complex mechanics inside the `startEngine()` method.
-  + _Inheritance:_ You can create a new class `ElectricCar` that inherits from the `Car` class. The `ElectricCar` class will have all the attributes and methods of the `Car` class, plus additional features like `batteryLevel`.
-  + _Polymorphism:_ Types of `Car` have the same `startEngine()` function, but `GasolineCar` and `ElectricCar` have their own and completely different `startEngine()` method. `GasolineCars` runs on gasoline and `ElectricCar` runs on electricity.
-</details>
-
-<details>
-  <summary>Passed by value</summary>
-  <br/>
-
-  In Java, all arguments are passed by value, including objects like `String`. This means that when you pass a String to a method, you’re passing a copy of the reference to the String object, not the actual object itself.
-
-  ```
-  public static String printString(String s) {
-    for(int i=0; i< 2; i++) {
-      s = s + String.valueOf(i);
-    }
-    return s;
-  }
-
-  public static void main(String[] args) {
-    String s = "hello";
-    String m = printString(s);
-    System.out.println(m); //hello01
-    System.out.println(s); //hello
-  }
-  ```
-</details>
-
-### Future
-
-<details>
-  <summary>Join results with CompletableFuture</summary>
-  <br/>
-
-  To join results with `CompletableFuture`, you can use the `allOf()` method to wait for multiple futures to complete and then combine their results
-
-  ```
-    public static void main(String[] args) {
-        CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> "Result 1");
-        CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> "Result 2");
-        CompletableFuture<String> future3 = CompletableFuture.supplyAsync(() -> "Result 3");
-
-        // void function
-        CompletableFuture<Void> allOf = CompletableFuture.allOf(future1, future2, future3);
-
-        // return type function
-        CompletableFuture<List<String>> allResults = allOf.thenApply(v -> 
-            List.of(future1, future2, future3).stream()
-                .map(CompletableFuture::join)
-                .collect(Collectors.toList())
-        );
-        allResults.thenAccept(results -> results.forEach(System.out::println));
-    }
-  ```
-
-</details>
-<details>
-  <summary>Future vs CompletableFuture</summary>
-  <br/>
-
-  **CompletableFuture:** 
-  + Extends the `Future` interface with additional methods for more flexible and powerful asynchronous programming.
-  + It provides non-blocking methods like `thenApply()`, `thenAccept()`, and `thenCompose()`.
-  + It provides methods like `exceptionally()` and `handle()` to handle exceptions.
-  
-</details>
-<details>
-  <summary>Handle exceptions in a CompletableFuture task</summary>
-  <br/>
-
-  `exceptionally()`**:**
-  ```
-  CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
-    if (true) { // Simulating an exception
-        throw new RuntimeException("Something went wrong!");
-    }
-    return "Success!";
-  });
-  
-  future.exceptionally(ex -> "An error occurred: " + ex.getMessage())
-        .thenAccept(System.out::println);
-  ```
-
-  `handle()`**:**
-  ```
-  CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
-    if (true) { // Simulating an exception
-        throw new RuntimeException("Something went wrong!");
-    }
-    return "Success!";
-  });
-
-  future.handle((result, ex) -> {
-      if (ex != null) {
-          return "An error occurred: " + ex.getMessage();
-      }
-      return result;
-  }).thenAccept(System.out::println);
-  ```
-
-  `whenComplete()`**:**
-  ```
-  CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
-    if (true) { // Simulating an exception
-        throw new RuntimeException("Something went wrong!");
-    }
-    return "Success!";
-  });
-
-  future.whenComplete((result, ex) -> {
-      if (ex != null) {
-          System.out.println("An error occurred: " + ex.getMessage());
-      } else {
-          System.out.println(result);
-      }
-  });
-  ```
-
-</details>
-
-### Static
-
-### String
-
-<details>
-  <summary>String literals vs String objects</summary>
-  <br/>
-
-  **String Literals:** `String s1 = "Hello";`
-  + Stored in the string pool, a special memory area in the heap.
-  + Generally faster due to the reuse of existing objects in the string pool.
-
-  **String Objects:** `String s2 = new String("Hello");`
-  + Stored in the heap, outside the string pool.
-  + Slightly slower due to the creation of a new object every time.
-
-</details>
-
-<details>
-  <summary>String, StringBuilder, and StringBuffer</summary>
-  <br/>
-
-  + **String:** Since String is immutable, it is inherently thread-safe.
-  + **StringBuilder:** `StringBuilder` is not synchronized, making it faster but not safe for use by multiple threads simultaneously.
-  + **StringBuffer:** `StringBuffer` is synchronized, meaning it is safe to use in multi-threaded environments but is slower than `StringBuilder`.
-
-</details>
-
-### Stream APIs
-
-<details>
-  <summary>Stream API operations</summary>
-  <br/>
-
-  **Intermediate Operations:** Operations transform a stream into another stream and are lazy, meaning they are not executed until a terminal operation is invoked.
-  + `map`: Transforms each element.
-  + `flatMap`: Transforms each element into a stream and flattens the resulting streams into a single stream.
-  + `filter`: Selects elements based on a predicate.
-  + `sorted`: Sorts the elements.
-  + `distinct`: Removes duplicates.
-  + `peek`: Used for debugging and observing the elements 
-  + `limit`: Limit the number of elements
-  + `skip`: Skips the first n elements.
-  + `takeWhile`: Takes elements if the predicate is true.
-  + `dropWhile`: Drops elements if the predicate is true.
-
-  **Terminal Operations:** Operations produce a result.
-  + `forEach`: Performs an action for each element.
-  + `collect`: Converts the stream into a collection.
-  + `reduce`: Aggregates elements into a single result.
-  + `findFirst`: Returns the first element of the stream, if present.
-  + `findAny`: Returns any element of the stream, if present.
-  + `count`: Count of elements.
-  + `match`: Returns true if match the predicate. (`anyMatch`, `allMatch`, `noneMatch`)
-  + `min` & `max`: Returns the minimum or maximum element.
-
- _Note:_ Operations are lazy, meaning they are not executed until a terminal operation is invoked.
-
-</details>
-<details>
-  <summary>Parallel Streams</summary>
-  <br/>
-  
-  Streams can be processed in parallel to leverage multi-core processors.
-
-  ```
-  List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-  int sum = numbers.parallelStream()
-                   .filter(n -> n % 2 == 0)
-                   .mapToInt(Integer::intValue)
-                   .sum();
-  ```
-
-  By default number of threads used by parallel streams is determined by the `ForkJoinPool.commonPool()`. This pool typically has one less thread than the number of available processors. For example, system has 8 processors, the common pool will have 7 threads.
-
-</details>
-<details>
-  <summary>Sorting in Stream</summary>
-  <br/>
-  
-  _Sorting integer:_
-  ```
-  List<Integer> numbers = Arrays.asList(5, 3, 8, 1, 9);
-  List<Integer> sortedNumbers = numbers.stream()
-                                       .sorted()
-                                       .collect(Collectors.toList());
-  ```
-  _Sorting date:_
-  ```
-  List<Person> sortedPeople = people.stream()
-                                  .sorted(Comparator.comparing(Person::getBirthDate))
-                                  .collect(Collectors.toList());
-  ```
-</details>
-<details>
-  <summary>map() vs flatMap()</summary>
-  <br/>
-
-  `map()`: Transforms each element in the stream into another object.
-  ```
-  List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
-  List<Integer> nameLengths = names.stream()
-                                   .map(String::length)
-                                   .collect(Collectors.toList());
-  ```
-
-  `flatMap()`: Transforms each element into a stream of objects and then flattens these streams into a single stream.
-  ```
-  List<List<String>> listOfLists = Arrays.asList(
-    Arrays.asList("Alice", "Bob"),
-    Arrays.asList("Charlie", "David")
-  );
-  List<String> flatList = listOfLists.stream()
-                                     .flatMap(List::stream)
-                                     .collect(Collectors.toList());
-  ```
-</details>
-<details>
-  <summary>Group elements</summary>
-  <br/>
-
-  **Using** `Collectors.groupingBy`**:**
-  
-  ```
-  List<String> items = Arrays.asList("apple", "banana", "orange", "apple", "banana", "apple");
-
-  Map<String, Long> groupedItems = items.stream()
-      .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-  ```
-
-  **Using** Collectors.groupingBy **with a downstream collector: **
-
-  ```
-  List<String> items = Arrays.asList("apple", "banana", "orange", "apple", "banana", "apple");
-
-  Map<String, List<String>> groupedItems = items.stream()
-      .collect(Collectors.groupingBy(Function.identity(), Collectors.toList()));
-  ```
-
-  **Using** `Collectors.partitioningBy`**:**
-
-  ```
-  List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
-  Map<Boolean, List<Integer>> partitionedNumbers = numbers.stream()
-      .collect(Collectors.partitioningBy(n -> n % 2 == 0));
-  ```
-</details>
-<details>
-  <summary>Create a stream from an array</summary>
-  <br/>
-  
-  **Using** `Arrays.stream()`**:**
-  ```
-  String[] array = {"apple", "banana", "cherry"};
-
-  Stream<String> stream = Arrays.stream(array);
-  // or 
-  Stream<String> stream = Stream.of(array);
-  ```
-
-  **For Primitive Arrays:**
-  ```
-  int[] array = {1, 2, 3, 4, 5};
-
-  IntStream intStream = Arrays.stream(array);
-  ```
-</details>
-<details>
-  <summary>Convert List to Map</summary>
-  <br/>
-
-  **List Object to Map:**
-  ```
-  Map<String, Integer> map = people.stream()
-            .collect(Collectors.toMap(
-                Person::getName, // Key mapper
-                Person::getAge   // Value mapper
-            ));
-  ```
-  **Handling duplicate keys:**
-  ```
-  Map<String, Integer> map = list.stream()
-    .collect(Collectors.toMap(
-        Function.identity(), // Key mapper
-        String::length,      // Value mapper
-        (existing, replacement) -> existing // Merge function
-    ));
-  ```
-</details>
-
-### Collections
-
-<details>
-  <summary>ArrayList vs LinkedList</summary>
-  <br/>
-
-  + Use `ArrayList` if you need fast access to elements and your application involves more read operations.
-  + Use `LinkedList` if your application involves a lot of insertions and deletions.
-  
-</details>
-
-<details>
-  <summary>HashSet vs TreeSet</summary>
-  <br/>
-
-  **HashSet:**
-  + Does not guarantee any order of the elements.
-  + Allows one null element.
-  + Suitable when you need a high-performance set without any ordering.
-
-  **TreeSet:**
-  + Maintains elements in a sorted order.
-  + Does not allow null elements.
-  + Suitable when you need a sorted set.
-
-  ```
-  class NameComparator implements Comparator<Person> {
-      @Override
-      public int compare(Person p1, Person p2) {
-          return p1.getName().compareTo(p2.getName());
-      }
-  }
-  ```
-  _Implement Comparator before using TreeSet._
-  
-</details>
-<details>
-  <summary>ConcurrentHashMap vs HashMap</summary>
-  <br/>
-
-  + **Thread Safety:** `HashMap` is not thread-safe, while `ConcurrentHashMap` is designed for concurrent access.
-  + **Performance:** `HashMap` is faster in single-threaded environments, but `ConcurrentHashMap` performs better in multi-threaded scenarios.
-  + **Null Handling:** `HashMap` allows null keys and values; `ConcurrentHashMap` does not.
-  
-</details>
-<details>
-  <summary>Comparable vs Comparator</summary>
-  <br/>
-
-  **Comparable**: `Comparable` provides a single sorting sequence. This means you can sort the collection based on one attribute, such as `id`, `name`, or `price`.
-  ```
-  class Student implements Comparable<Student> {
-    int rollno;
-    String name;
-    int age;
-
-    ...
-
-    public int compareTo(Student st) {
-        return this.age - st.age;
-    }
-  }
-  ```
-
-  **Comparator**: `Comparator` provides multiple sorting sequences. This means you can sort the collection based on multiple attributes, such as `id`, `name`, or `price`.
-  ```
-  class NameComparator implements Comparator<Student> {
-      public int compare(Student s1, Student s2) {
-          return s1.name.compareTo(s2.name);
-      }
-  }
-  ```
-</details>
-
-<details>
-  <summary>How does a HashMap work internally?</summary>
-  <br/>
-
-  + When you insert a key-value pair into a HashMap, the key is passed through a hash function. This function converts the key into a hash code, so thay why with custom object, we have to orverride the `hashCode` & `equalsTo` method. 
-  + The hash code is then used to determine the index in the underlying array where the value should be stored. With formula: _index = hashCode % arrayLength_.
-  
-</details>
-
-<details>
-  <summary>How do you synchronize a collection in Java?</summary>
-  <br/>
-
-  ```
-  List<String> synchronizedList = Collections.synchronizedList(new ArrayList<>());
-
-  Set<String> synchronizedSet = Collections.synchronizedSet(new HashSet<>());
-
-  Map<String, String> synchronizedMap = Collections.synchronizedMap(new HashMap<>());
-
-  List<String> cowList = new CopyOnWriteArrayList<>();
-  ```
-  
-</details>
-
-### Lambda
-
-
 
 ## New features
 
