@@ -888,6 +888,17 @@
 </details>
 
 <details>
+  <summary>Priority in Thread</summary>
+  
+</details>
+
+<details>
+  <summary>What's difference between thread and process?</summary>
+  <br/>
+
+</details>
+
+<details>
   <summary>wait(), notify() and notifyAll()</summary>
 
   + **wait()**<br/>
