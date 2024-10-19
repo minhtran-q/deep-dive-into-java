@@ -143,6 +143,12 @@
 
 </details>
 
+<details>
+  <summary>What is the difference between a static and a non-static inner class?</summary>
+  <br/>
+
+</details>
+
 ### String
 
 <details>
