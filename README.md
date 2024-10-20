@@ -593,7 +593,25 @@
 <details>
   <summary>Functional Interface</summary>
   <br/>
-  
+
+  + A Functional Interface in Java is an interface that contains exactly one abstract method.
+  + Functional interfaces can have any number of _default_ and _static_ methods.
+  + It's good practice to use the `@FunctionalInterface` annotation to explicitly indicate that the interface is a functional interface.
+
+  ```
+  @FunctionalInterface
+  interface MyFunctionalInterface {
+      void doSomething();
+  }
+  ```
+
+  **Common Built-in Functional Interfaces:**
+
+  + `Function<T, R>`
+  + `Consumer<T>`
+  + `Predicate<T>`
+  + `Supplier<T>`
+  + `BiFunction<T, U, R>`
   
 </details>
 <details>
