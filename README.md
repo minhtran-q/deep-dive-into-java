@@ -587,6 +587,69 @@
 <details>
   <summary>Effectively final variables with Lambda</summary>
   <br/>
+
+  **Final Variables**
+
+  ```
+  final int number = 10;
+  Runnable r = () -> System.out.println(number);  // This is valid
+  ```
+  **Effectively Final Variables**
+
+  An effectively final variable is a variable that is not explicitly declared as `final`, but its value is assigned only once and never changed. A final variable in Java is a variable whose value is assigned once and cannot be changed after it has been initialized.  this concept to allow lambda expressions to access variables without the need for an explicit `final` declaration.
+  ```
+  int number = 10;  // Not declared as final, but it's effectively final
+  Runnable r = () -> System.out.println(number);  // This is valid
+  ```
+
+  `number` is not explicitly marked as `final`, but since its value is not modified after initialization, it is considered _effectively final_.
+  
+</details>
+<details>
+  <summary>Why Do Lambda Require Final or Effectively Final Variables?</summary>
+  <br/>
+
+  **Closure Semantics**
+  Lambdas in Java act like closures, meaning they can capture and access variables from their enclosing scope. For a lambda to be safely executed in a different context or later in time, the variables it captures must have consistent and unchanging values. 
+
+  ```
+  public class ClosureExample {
+    public void execute() {
+        int localVar = 10;  // Local variable (effectively final)
+        
+        Runnable r = () -> {
+            System.out.println("Captured variable: " + localVar);  // Accessing local variable
+        };
+
+        r.run();  // Outputs: Captured variable: 10
+      }
+  }
+  ```
+
+  **Thread Safety**
+
+  Lambdas can be executed in a multi-threaded environment. If lambda expressions were allowed to access variables that could change after they are captured, there would be risks of race conditions or data inconsistencies.
+
+  ```
+  int number = 10;
+  Runnable r = () -> System.out.println(number);  // Captures 'number'
+  number = 20;  // If allowed, this could cause issues in multi-threaded code
+  new Thread(r).start();  // What would the lambda print? 10 or 20?
+  ```
+
+  **Accessing Variables Beyond Their Scope:** This means that the captured variables live as long as the lambda exists.
+
+  ```
+  public Runnable createRunnable() {
+    int count = 10;  // Effectively final variable
+    return () -> System.out.println("Count: " + count);  // Captures 'count'
+  }
+  
+  public static void main(String[] args) {
+      Runnable runnable = createRunnable();  // 'count' goes out of scope after this
+      runnable.run();  // Outputs: Count: 10 (even though 'count' is out of scope)
+  }
+  ```
   
 </details>
 <details>
