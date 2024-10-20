@@ -341,6 +341,19 @@
 ### Collections
 
 <details>
+  <summary>List vs Set</summary>
+  <br/>
+
+  **List**  
+  + Can hold duplicated element.
+  + Get element by index.
+  **Set**
+  + Cannot hold duplicated element.
+  + Not support getting element by index.
+  + To check duplicated elements in the `Set`, you have to override the `equals()` and `hashcode()` method.
+</details>
+
+<details>
   <summary>ArrayList vs LinkedList</summary>
   <br/>
 
