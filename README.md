@@ -823,6 +823,34 @@
   ```
 </details>
 
+<details>
+  <summary>Stateless & stateful lambda</summary>
+  <br/>
+
+  Stateless Lambdas
+
+  By default, lambdas are expected to be stateless, meaning they don't maintain or modify state outside their scope
+  
+  _Example of a stateless lambda:_
+  
+  ```
+  List<Integer> numbers = Arrays.asList(1, 2, 3);
+  numbers.forEach(n -> System.out.println(n * 2));  // Stateless operation
+  ```
+  In this case, the lambda expression n -> System.out.println(n * 2) is stateless because it only processes each input n independently
+
+  **Stateful Lambdas (Potential Pitfall)**
+
+  Although lambdas are designed to be stateless, it's possible to introduce state if the lambda captures variables or interacts with external mutable objects. This can lead to unexpected behavior, especially in multi-threaded environment
+
+  ```
+  int[] sum = {0};  // Mutable array
+  List<Integer> numbers = Arrays.asList(1, 2, 3);
+  numbers.forEach(n -> sum[0] += n);  // Stateful lambda, modifies external state
+  System.out.println(sum[0]);  // Outputs: 6
+  ```
+</details>
+
 ## JVM
 ### ClassLoader
 <details>
