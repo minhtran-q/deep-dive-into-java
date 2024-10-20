@@ -207,7 +207,7 @@
   + They are executed when the class is loaded into memory, before any object is created.
   + A class can have multiple static blocks, and they will be executed in the order they are defined.
 
-  +   ```
+  ```
   class Example {
     static int a;
     
