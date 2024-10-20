@@ -585,11 +585,35 @@
   
 </details>
 <details>
+  <summary>Effectively final variables with Lambda</summary>
+  <br/>
+  
+</details>
+<details>
+  <summary>Anonymous Class vs Lambda Expressions</summary>
+  <br/>
+
+  **Anonymous Class:**
+  + Can implement interfaces with multiple abstract methods or extend a class.
+  + `this` refers to the anonymous class instance.
+  + Can access only final or effectively final variables from the enclosing scope.
+  + Generates a separate class file for each instance, adding overhead.
+  + Traditional object-oriented programming.
+
+  **Lambda Expressions:**
+  + Can only be used with Functional interfaces.
+  + `this` refers to the enclosing class instance.
+  + Can access only final or effectively final variables from the enclosing scope.
+  + More efficient, leveraging `invokedynamic` for lightweight execution.
+  + Functional programming style.
+  
+</details>
+<details>
   <summary>Lambda Expression as variable</summary>
   <br/>
   
-  
 </details>
+
 <details>
   <summary>Functional Interface</summary>
   <br/>
@@ -612,11 +636,6 @@
   + `Predicate<T>`
   + `Supplier<T>`
   + `BiFunction<T, U, R>`
-  
-</details>
-<details>
-  <summary>Effectively final variables with Lambda</summary>
-  <br/>
   
 </details>
 <details>
