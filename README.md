@@ -673,8 +673,81 @@
   
 </details>
 <details>
-  <summary>Lambda Expression as variable</summary>
+  <summary>Lambda Expression as variable, parameter, return type</summary>
   <br/>
+  Lambda expressions can be used both as variables, method parameters and return type.
+
+  **Lambda Expression as a Variable**
+
+  ```
+  @FunctionalInterface
+  interface StringOperation {
+      String apply(String input);
+  }
+  ```
+
+  ```
+  public static void main(String[] args) {
+
+    StringOperation toLowerCase = (input) -> input.toLowerCase();
+
+    // Using the lambda expression as a variable
+    System.out.println(toLowerCase.apply("HELLO"));  // Output: hello
+  }
+  ```
+  Lambda expressions `(input) -> input.toLowerCase()`  are assigned to the variable `toLowerCase`.
+
+  **Lambda Expression as a Parameter**
+
+  ```
+  // Functional Interface
+  @FunctionalInterface
+  interface Filter<T> {
+      boolean test(T t);
+  }
+  ```
+
+  ```
+  public static void main(String[] args) {
+      List<String> names = Arrays.asList("John", "Jane", "Jack", "Doe");
+
+      // Passing lambda expression as a parameter
+      List<String> filteredNames = filterNames(names, name -> name.startsWith("J"));
+  }
+
+  // Method that takes a lambda as a parameter
+  public static List<String> filterNames(List<String> names, Filter<String> filter) {
+      return names.stream()
+                  .filter(name -> filter.test(name))  // Applying the lambda filter
+                  .collect(Collectors.toList());
+  }
+  ```
+  The lambda name -> name.startsWith("J") is passed as a parameter to the filterNames method.
+
+  **Lambda Expression as a Return Type**
+
+  ```
+  // Functional Interface
+  @FunctionalInterface
+  interface ArithmeticOperation {
+      int operate(int a, int b);
+  }
+  ```
+
+  ```
+  // Method that returns a lambda expression
+  public static ArithmeticOperation getOperation(String operationType) {
+      switch (operationType) {
+          case "add":
+              return (a, b) -> a + b;
+          case "subtract":
+              return (a, b) -> a - b;
+          default:
+              throw new IllegalArgumentException("Unknown operation");
+      }
+  }
+  ```
+  The `getOperation` method returns a lambda expression based on the `operationType` argument.
   
 </details>
 
