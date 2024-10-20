@@ -138,9 +138,31 @@
 ### Static
 
 <details>
-  <summary>What does "static" keyword mean?</summary>
+  <summary>About static in java</summary>
   <br/>
 
+  The static keyword is widely used for memory management and to create class-level properties and methods.
+
+  **Static Variables**
+
+  + It is shared among all instances of a class.
+  + There is only one copy of a static variable per class
+  + Memory allocation for static variables happens only once when the class is loaded.
+
+  _For example:_
+
+  ```
+  class Example {
+    static int count = 0; // static variable
+
+    Example() {
+        count++;
+        System.out.println("Count is: " + count);
+    }
+  }
+  ```
+  The `count` variable is shared by all instances, so every time an object is created, it increments the same `count` variable.
+  
 </details>
 
 <details>
