@@ -43,6 +43,24 @@
   ```
 </details>
 
+<details>
+  <summary>Interfaces vs Abstract Classes</summary>
+  <br/>
+
+  _**Interfaces:**_
+  + **Fields:** Cannot have instance fields, and have implicitly `public`, `static`, and `final`.
+  + **Methods:** Can have default methods, static methods, abstract methods (without a body) but cannot have constructors.
+  + **Inheritance:** Supports multiple inheritance of type.
+  + **Accessibility:** Cannot have private or protected members.
+
+  _**Abstract Classes:**_
+  + **Fields:** Can have fields with any visibility (`private`, `protected`, `public`). And it can be static or non-static, final or non-final.
+  + **Methods:** Can have constructors, concrete methods (with a body), abstract methods (without a body).
+  + **Inheritance:** Supports single inheritance.
+  + **Accessibility:** Supports all types of member visibility (`private`, `protected`, `public`).
+
+</details>
+
 ### Future
 
 <details>
