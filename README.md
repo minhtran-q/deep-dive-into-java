@@ -675,6 +675,7 @@
 <details>
   <summary>Lambda Expression as variable, parameter, return type</summary>
   <br/>
+  
   Lambda expressions can be used both as variables, method parameters and return type.
 
   **Lambda Expression as a Variable**
