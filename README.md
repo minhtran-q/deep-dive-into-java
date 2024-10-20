@@ -43,38 +43,6 @@
   ```
 </details>
 
-<details>
-  <summary>Default and Static Methods in Interfaces</summary>
-  <br/>
-  
-  + Interfaces can now contain default and static methods.
-  + Provides a way to add new methods to existing interfaces without breaking compatibility.
-
-  ```
-  interface Drawable {
-      void draw();
-  
-      default void drawWithBorder() {
-          draw();
-          System.out.println("Drawing border");
-      }
-  }
-  ```
-
-  _**Interfaces:**_
-  + **Fields:** Cannot have instance fields, and have implicitly `public`, `static`, and `final`.
-  + **Methods:** Can have default methods, static methods, abstract methods (without a body) but cannot have constructors.
-  + **Inheritance:** Supports multiple inheritance of type.
-  + **Accessibility:** Cannot have private or protected members.
-
-  _**Abstract Classes:**_
-  + **Fields:** Can have fields with any visibility (`private`, `protected`, `public`). And it can be static or non-static, final or non-final.
-  + **Methods:** Can have constructors, concrete methods (with a body), abstract methods (without a body).
-  + **Inheritance:** Supports single inheritance.
-  + **Accessibility:** Supports all types of member visibility (`private`, `protected`, `public`).
-
-</details>
-
 ### Future
 
 <details>
@@ -1736,6 +1704,25 @@ public class StudentManager {
   + `orElse()`: Returns the value if present, otherwise returns a default value.
   + `ifPresent()`: Executes a block of code if the value is present2.
   
+</details>
+
+<details>
+  <summary>Default and Static Methods in Interfaces</summary>
+  <br/>
+  
+  + Interfaces can now contain default and static methods.
+  + Provides a way to add new methods to existing interfaces without breaking compatibility.
+
+  ```
+  interface Drawable {
+      void draw();
+  
+      default void drawWithBorder() {
+          draw();
+          System.out.println("Drawing border");
+      }
+  }
+  ```
 </details>
 
 ### Java 11
