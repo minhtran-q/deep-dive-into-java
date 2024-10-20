@@ -1714,27 +1714,14 @@ public class StudentManager {
 ### Java 8
 
 <details>
-  <summary>Lambda</summary>
+  <summary>Features</summary>
   <br/>
 
-  The basic syntax of a lambda expression is:
-  ```
-  (parameters) -> expression
-  // or
-  (parameters) -> { statements; }
-  ```
-
-  Principles of functional interfaces:
-  + **Single Abstract Method (SAM):** A functional interface must have only one abstract method.
-  + **@FunctionalInterface Annotation**
-  + **Default and Static Methods:** Functional interfaces can have any number of _default_ and _static_ methods.
-
-  Java provides several built-in functional interfaces: 
-  + `Function<T, R>`
-  + `Consumer<T>`
-  + `Predicate<T>`
-  + `Supplier<T>`
-  + `BiFunction<T, U, R>`
+  + Lambda Expressions
+  + Functional Interfaces
+  + Streams API
+  + Default Methods
+  + Optional Class
   
 </details>
 
