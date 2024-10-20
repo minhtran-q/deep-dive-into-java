@@ -705,7 +705,48 @@
 <details>
   <summary>Handle exceptions in a Lambda</summary>
   <br/>
-  
+
+  **Unchecked Exceptions (RuntimeException)**
+
+  If the exception thrown inside the lambda is an unchecked exception, it can be propagated directly outside the lambda function without any special handling.
+
+  ```
+  public static void main(String[] args) {
+      List<String> items = Arrays.asList("1", "2", "a", "4");
+
+      try {
+          items.forEach(item -> {
+              int number = Integer.parseInt(item);  // This might throw NumberFormatException
+              System.out.println("Parsed number: " + number);
+          });
+      } catch (NumberFormatException e) {
+          System.out.println("Exception caught outside: " + e.getMessage());
+      }
+  }
+  ```
+
+  **Checked Exceptions**
+
+  If the exception inside the lambda is a checked exception, you _cannot throw_ it directly outside the lambda because the functional interfaces do not allow checked exceptions to be thrown.
+
+  To propagate checked exceptions, you have several options:
+  ```
+  public static void main(String[] args) {
+      List<String> files = Arrays.asList("file1.txt", "file2.txt", "file3.txt");
+
+      try {
+          files.forEach(file -> {
+              try {
+                  readFile(file);  // This might throw IOException (checked exception)
+              } catch (Exception e) {
+                  throw new RuntimeException("Checked exception wrapped in RuntimeException", e);
+              }
+          });
+      } catch (RuntimeException e) {
+          System.out.println("Exception caught outside: " + e.getCause().getMessage());
+      }
+  }
+  ```
 </details>
 
 ## JVM
