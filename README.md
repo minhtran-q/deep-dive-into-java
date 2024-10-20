@@ -903,9 +903,9 @@
   **Setting Priority:**
   + You can set a thread’s priority using the `setPriority(int priority)` method.
   + You can retrieve the current priority using the `getPriority()` method.
-    + Thread.MIN_PRIORITY (1): Lowest priority.
-    + Thread.NORM_PRIORITY (5): Default priority.
-    + Thread.MAX_PRIORITY (10): Highest priority 
+    + `Thread.MIN_PRIORITY (1)`: Lowest priority.
+    + `Thread.NORM_PRIORITY (5)`: Default priority.
+    + `Thread.MAX_PRIORITY (10)`: Highest priority 
   
 </details>
 
