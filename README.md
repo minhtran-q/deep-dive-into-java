@@ -610,6 +610,7 @@
   <br/>
 
   **Closure Semantics**
+  
   Lambdas in Java act like closures, meaning they can capture and access variables from their enclosing scope. For a lambda to be safely executed in a different context or later in time, the variables it captures must have consistent and unchanging values. 
 
   ```
