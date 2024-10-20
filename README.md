@@ -143,7 +143,12 @@
 
   The static keyword is widely used for memory management and to create _class-level_, _properties_ and _methods_.
 
-  Common use cases of static variables and static methods:
+  **Static Members in the Method Area**
+
+  + Static variables are stored here along with their initialized values.
+  + Static methods are stored as code references, meaning their bytecode is stored in the method area, and they are accessible without requiring any object of the class.
+
+  _Common use cases of static variables and static methods:_
   
   + **Constants Variables:** Used to define constants that do not change, typically marked `final`.
   + **Utility Methods:** Used for helper functions that don't require an instance.
@@ -155,8 +160,6 @@
 <details>
   <summary>Static Variables</summary>
   <br/>
-
-  
 
   + It is shared among all instances of a class.
   + There is only one copy of a static variable per class
