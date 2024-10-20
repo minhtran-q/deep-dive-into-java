@@ -895,6 +895,17 @@
 
 <details>
   <summary>Priority in Thread</summary>
+
+  **Default Priority:**
+  + Every thread is assigned a default priority.
+  + The default priority of a thread is typically Thread.NORM_PRIORITY (which is 5).
+
+  **Setting Priority:**
+  + You can set a thread’s priority using the `setPriority(int priority)` method.
+  + You can retrieve the current priority using the `getPriority()` method.
+    + Thread.MIN_PRIORITY (1): Lowest priority.
+    + Thread.NORM_PRIORITY (5): Default priority.
+    + Thread.MAX_PRIORITY (10): Highest priority 
   
 </details>
 
