@@ -562,6 +562,51 @@
 
 ### Lambda
 
+<details>
+  <summary>What is a Lambda Expression in Java?</summary>
+  <br/>
+
+  A lambda expression in Java is a feature allows you to create anonymous methods shortly. It enables you to write code in a functional programming style.
+
+  ```
+  (parameters) -> { statements; }
+  ```
+
+  + **Parameters:** The input to the lambda expression, like a regular method.
+  + **Arrow Token (`->`):** Separates the parameters from the body of the lambda expression.
+  + **Statements:** The code or expression that is executed when the lambda is invoked.
+
+  **Main advantages of using Lambda**
+
+  + Support for functional programming
+  + Reduced code with Anonymous Classes.
+  + Easier to work with Stream API.
+  + Improved eeadability and maintainability.
+  
+</details>
+<details>
+  <summary>Lambda Expression as variable</summary>
+  <br/>
+  
+  
+</details>
+<details>
+  <summary>Functional Interface</summary>
+  <br/>
+  
+  
+</details>
+<details>
+  <summary>Effectively final variables with Lambda</summary>
+  <br/>
+  
+</details>
+<details>
+  <summary>Handle exceptions in a Lambda</summary>
+  <br/>
+  
+</details>
+
 ## JVM
 ### ClassLoader
 <details>
