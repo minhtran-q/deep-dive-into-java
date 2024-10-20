@@ -896,6 +896,21 @@
   ```
 </details>
 
+<details>
+  <summary>Why Do We Need Immutable Objects?</summary>
+  <br/>
+
+  + **Thread Safety:** Since the state of an immutable object cannot be changed after its creation, it is safe to share between multiple threads without synchronization.
+  + **Cacheability:** Immutable objects can be cached or reused freely. For instance, `String` objects in Java are cached in a string pool, reducing memory usage and improving performance.
+  + **Encapsulation:** Immutability encourages better encapsulation. 
+  
+  **When to Use Immutable Objects**
+
+  + Use for Concurrency and Multithreading
+  + Data Transfer Objects (DTOs)
+  + Caching
+  + Collections of Immutable Objects
+</details>
 
 ## JVM
 ### ClassLoader
