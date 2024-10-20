@@ -164,6 +164,63 @@
 </details>
 
 <details>
+  <summary>Static Method</summary>
+  <br/>
+
+  + Methods declared as static belong to the class, not to any specific instance of the class.
+  + They can be called using the class name wihtout an instance of object.
+  + Static methods _cannot access_ instance variables or methods directly, they can only access static data or other static methods.
+  
+</details>
+
+<details>
+  <summary>Static Class</summary>
+  <br/>
+
+  + In Java, you can declare static _nested_ classes. These are classes defined inside another class that are marked with `static`.
+
+  ```
+  class OuterClass {
+      static class NestedStaticClass {
+          void display() {
+              System.out.println("Static nested class method called.");
+          }
+      }
+  }
+  
+  public class Main {
+      public static void main(String[] args) {
+          OuterClass.NestedStaticClass nested = new OuterClass.NestedStaticClass();
+          nested.display();
+      }
+  }
+  ```
+  
+</details>
+
+<details>
+  <summary>Static Block</summary>
+  <br/>
+
+  + Static blocks are used to initialize static variables.
+  + They are executed when the class is loaded into memory, before any object is created.
+  + A class can have multiple static blocks, and they will be executed in the order they are defined.
+
+  +   ```
+  class Example {
+    static int a;
+    
+    // Static block
+    static {
+        a = 10;
+        System.out.println("Static block called. Value of a: " + a);
+    }
+  }
+  ```
+  
+</details>
+
+<details>
   <summary>What is the difference between a static and a non-static inner class?</summary>
   <br/>
 
