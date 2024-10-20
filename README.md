@@ -429,8 +429,21 @@
   <summary>How does a HashMap work internally?</summary>
   <br/>
 
-  + When you insert a key-value pair into a HashMap, the key is passed through a hash function. This function converts the key into a hash code, so thay why with custom object, we have to orverride the `hashCode` & `equalsTo` method. 
-  + The hash code is then used to determine the index in the underlying array where the value should be stored. With formula: _index = hashCode % arrayLength_.
+  **Terminogoly in HashMap**
+
+  + **Bucket:** A bucket is a slot in the internal array where entries (key-value pairs) are stored. Each bucket can hold one or more entries, especially when collisions occur.
+  + **Entry (or Node):** An entry represents a key-value pair in the HashMap. Each entry contains a key, a value, and a reference to the next entry (in case of collisions).
+  + **Collision:** A collision occurs when two different keys produce the same hash code or map to the same bucket (index). In this case, multiple entries are stored in the same bucket, and a mechanism like chaining or tree-based storage.
+  + **Capacity:** Capacity refers to the total number of buckets in the `HashMap`. The capacity grows (usually doubles) when the `HashMap` resizes.
+  + **Rehashing:** Redistributing entries after resizing.
+
+ ** How HashMap works internally?**
+
+  + When we call `put(key, value)`, the first step is to compute the hash code of the key.
+  + Once the hash value is computed, the HashMap determines which bucket (index in the internal array). Formula: `int bucketIndex = hash & (n - 1); // n is the array length (capacity)`.
+  + the `HashMap` checks if the bucket is already occupied. If the bucket is _not empty_, the HashMap compares the new key with the keys of existing entry in that bucket.
+    + the HashMap stores the new entry as part of a linked list at that index.
+    + If an entry already exists with the same key (using `equals()`), the value is updated instead of adding a new entry.
   
 </details>
 
