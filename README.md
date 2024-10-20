@@ -138,12 +138,10 @@
 ### Static
 
 <details>
-  <summary>About static in java</summary>
+  <summary>Static Variables</summary>
   <br/>
 
-  The static keyword is widely used for memory management and to create class-level properties and methods.
-
-  **Static Variables**
+  The static keyword is widely used for memory management and to create _class-level_, _properties_ and _methods_.
 
   + It is shared among all instances of a class.
   + There is only one copy of a static variable per class
