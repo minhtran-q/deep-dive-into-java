@@ -646,6 +646,22 @@
 
 </details>
 
+<details>
+  <summary>Static methods and instance methods</summary>
+  <br/>
+
+  **Static Methods:**
+  + Stored in the method area (shared memory).
+  + Only one copy exists for the entire class.
+  + Belong to the class, not to any specific object.
+  
+  **Instance Methods:**
+  + Stored in the heap memory, along with the object’s instance data.
+  + Belong to individual objects.
+  + Each instance can access its own instance variables, but the method logic is the same.
+
+</details>
+
 ### Memory Management
 
 <details>
