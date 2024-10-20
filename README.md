@@ -206,6 +206,7 @@
   + Static blocks are used to initialize static variables.
   + They are executed when the class is loaded into memory, before any object is created.
   + A class can have multiple static blocks, and they will be executed in the order they are defined.
+  + If the class has a `main()` method, the static block will run before it.
 
   ```
   class Example {
