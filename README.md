@@ -169,7 +169,8 @@
 
   + Methods declared as static belong to the class, not to any specific instance of the class.
   + They can be called using the class name wihtout an instance of object.
-  + Static methods _cannot access_ instance variables or methods directly, they can only access static data or other static methods.
+  + Static methods can only call other static methods and access static data.
+  + Static methods cannot access instance data (non-static fields) directly.
   
 </details>
 
