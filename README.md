@@ -138,10 +138,25 @@
 ### Static
 
 <details>
-  <summary>Static Variables</summary>
+  <summary>About static keymethod</summary>
   <br/>
 
   The static keyword is widely used for memory management and to create _class-level_, _properties_ and _methods_.
+
+  Common use cases of static variables and static methods:
+  
+  + **Constants Variables:** Used to define constants that do not change, typically marked `final`.
+  + **Utility Methods:** Used for helper functions that don't require an instance.
+  + **Factory Methods:** Used to create instances of a class without needing an object.
+  + **Singleton Pattern:** Ensures only one instance of a class is created using a static method.
+  
+</details>
+
+<details>
+  <summary>Static Variables</summary>
+  <br/>
+
+  
 
   + It is shared among all instances of a class.
   + There is only one copy of a static variable per class
