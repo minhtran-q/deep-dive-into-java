@@ -902,6 +902,9 @@
   <summary>What's difference between thread and process?</summary>
   <br/>
 
+  + **Process:** An independent execution unit with its own memory space. Processes don’t share memory, are heavier to create, and communicate via complex mechanisms.
+  + **Thread:** A lightweight unit of execution within a process. Threads share memory, are easier to create, communicate directly, and provide faster context switching.
+
 </details>
 
 <details>
