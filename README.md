@@ -1085,6 +1085,19 @@
 <details>
   <summary>What is garbage collection in Java</summary>
   <br/>
+
+  Garbage Collection (GC) in Java is the process of automatically identifying and reclaiming memory that is no longer in use or referenced by the program.
+
+  **How to Make Objects Eligible for Garbage Collection:**
+
+  + Setting objects to `null`.
+  + Objects going out of scope (Local variables go out of scope when a method ends).
+  + Reassigning references (If an object is no longer referenced because a reference is reassigned).
+  ```
+  Object obj1 = new Object();
+  Object obj2 = new Object();
+  obj1 = obj2;  // The old object obj1 pointed to is now eligible for GC
+  ```
   
 </details>
 
