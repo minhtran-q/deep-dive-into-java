@@ -302,7 +302,7 @@
 
   **String Literals:** `String s1 = "Hello";`
   + Stored in the string pool, a special memory area in the heap.
-  + Generally faster due to the reuse of existing objects in the string pool.
+  + Generally faster due to reuse the existing objects in the string pool.
 
   **String Objects:** `String s2 = new String("Hello");`
   + Stored in the heap, outside the string pool.
