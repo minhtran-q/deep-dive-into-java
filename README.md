@@ -1266,6 +1266,7 @@
 <details>
   <summary>When should you use buffered streams?</summary>
   <br/>
+  Buffered streams instead of reading or writing small amounts of data directly to/from the source, buffered streams collect data in memory (the buffer) and only interact with that source. Buffered stream reduces the number of direct I/O operations, which are typically slow and resource-intensive.
   
 </details>
 
