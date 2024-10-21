@@ -159,12 +159,42 @@
   <summary>About static keymethod</summary>
   <br/>
 
-  The static keyword is widely used for memory management and to create _class-level_, _properties_ and _methods_.
+  The `static` keyword is used  for memory management, and it can be applied to _variables_, _methods_, _blocks_, and _nested classes_.
 
   **Static Members in the Method Area**
 
-  + Static variables are stored here along with their initialized values.
-  + Static methods are stored as code references, meaning their bytecode is stored in the method area, and they are accessible without requiring any object of the class.
+  + Static members are stored in _Method Area_ (which is a part of the Java Heap Memory).
+
+  **When are Static Members Loaded?**
+
+  + Static members are loaded when the class is first referenced.
+
+  ```
+  class MyClass {
+    static int a = 10;
+    
+    static {
+        System.out.println("Static block executed.");
+    }
+    
+    static void staticMethod() {
+        System.out.println("Static method called.");
+    }
+  }
+
+  public class Main {
+      public static void main(String[] args) {
+          // Class is loaded and static members are initialized/loaded
+          MyClass.staticMethod();  // First reference causes class loading
+      }
+  }
+  ```
+
+  In this example, the class `MyClass` is loaded when `MyClass.staticMethod()` is first referenced (call).
+
+  + Static variable `a` is initialized.
+  + The static block is executed.
+  + The static method becomes available for execution.
 
   _Common use cases of static variables and static methods:_
   
