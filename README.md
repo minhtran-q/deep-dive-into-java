@@ -1382,6 +1382,22 @@
   
 </details>
 
+<details>
+  <summary>Synchronous vs Asynchronous execution</summary>
+  <br/>
+
+  **Synchronous execution**
+  
+  + In synchronous execution, tasks or methods are executed sequentially.
+  + A task starts and completes before the next task begins, it means the program waits for the task to finish before continuing to the next one.
+
+  **Asynchronous execution**
+
+  + In asynchronous execution, tasks can be initiated without waiting for them to finish.
+  + The program can continue executing other code while the task runs in the background.
+  
+</details>
+
 ### Concurrency vs Parallelism
 
 <details>
