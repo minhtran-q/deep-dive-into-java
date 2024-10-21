@@ -545,7 +545,9 @@
   <summary>Comparable vs Comparator</summary>
   <br/>
 
-  **Comparable**: `Comparable` provides a single sorting sequence. This means you can sort the collection based on one attribute, such as `id`, `name`, or `price`.
+  **Comparable**: 
+  + The class must implement `Comparable<T>` class, it means there is a single way to compare objects.
+  + `Comparable` provides a single sorting sequence. This means you can sort the collection based on one attribute, such as `id`, `name`, or `price`.
   ```
   class Student implements Comparable<Student> {
     int rollno;
@@ -560,7 +562,9 @@
   }
   ```
 
-  **Comparator**: `Comparator` provides multiple sorting sequences. This means you can sort the collection based on multiple attributes, such as `id`, `name`, or `price`.
+  **Comparator**: 
+  + It provides the flexibility to compare objects in different ways.
+  + `Comparator` provides multiple sorting sequences. This means you can sort the collection based on multiple attributes, such as `id`, `name`, or `price`.
   ```
   class NameComparator implements Comparator<Student> {
       public int compare(Student s1, Student s2) {
