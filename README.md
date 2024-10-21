@@ -1699,14 +1699,13 @@ public class StudentManager {
   <br/>
   
   _**Checked Exceptions:**_
-  + **Recoverable Conditions:** Use for situations where the caller can reasonably be expected to recover from the exception. For example, if a file is not found, the caller might prompt the user to provide a different file path.
-  + **External Resources:** When dealing with resources like files, databases, or network connections that might fail but can be retried.
-  + **Mandatory Handling:** If you want to force the caller to handle the exception, use a checked exception.
+  + When the program can recover from the exception
+  + External resources where errors can reasonably be expected and should be handled. (files, databases, or network connections that might fail but can be retried).
+  + When we want to force the caller to handle the exception, use a checked exception.
 
   _**Un-checked Exceptions:**_
-  + **Programming Errors:** Use unchecked exceptions for errors that are due to programming mistakes. These are typically bugs that should be fixed in the code rather than handled at runtime.
-  + **Runtime Conditions:** Situations that are not expected to be recovered from, such as accessing an invalid array index or passing a null argument where it is not allowed.
-  + **Optional Handling:** If you don’t want to force the caller to handle the exception, use an unchecked exception.
+  + For coding mistakes that represent bugs, such as invalid arguments or logic errors.
+  + In care that are not expected to be recovered from, such as accessing an invalid array index or passing a null argument.
   
   Ref: https://stackoverflow.com/questions/499437/in-java-when-should-i-create-a-checked-exception-and-when-should-it-be-a-runti?noredirect=1&lq=1
 
