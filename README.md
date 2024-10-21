@@ -62,7 +62,7 @@
 </details>
 
 <details>
-  <summary>Interfaces vs Abstract Classes</summary>
+  <summary>Overriding vs Overloading</summary>
   <br/>
 
   **Overriding**
