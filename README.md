@@ -492,6 +492,7 @@
   **List**  
   + Can hold duplicated element.
   + Get element by index.
+
   **Set**
   + Cannot hold duplicated element.
   + Not support getting element by index.
