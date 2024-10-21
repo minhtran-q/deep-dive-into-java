@@ -1470,10 +1470,23 @@
 ### Thread Signaling
   
 <details>
-  <summary>Overview</summary>
+  <summary>Lifecycle of Thread</summary>
 
-  ![](images/waitnotify.png)
+  | **State**       | **Description**                                                                 |
+  |-----------------|---------------------------------------------------------------------------------|
+  | **New**         | The thread is created but not yet started (`start()` not called).               |
+  | **Runnable**    | The thread is ready to run but waiting for CPU allocation by the scheduler.     |
+  | **Running**     | The thread is executing its task (running the `run()` method).                  |
+  | **Blocked**     | The thread is blocked and waiting (e.g., for I/O, locks, or notifications).     |
+  | **Terminated**  | The thread has finished execution and cannot be restarted.                      |
   
+  ![](images/waitnotify.png)
+
+  - **New → Runnable**: When `start()` is called, the thread moves from the **new** state to the **runnable** state.
+  - **Runnable → Running**: The thread moves to the **running** state when the CPU allocates time for the thread.
+  - **Running → Blocked**: The thread may enter the **blocked** state if it is waiting for I/O, acquiring a lock, or calling `sleep()`, `wait()`, or `join()`.
+  - **Blocked → Runnable**: Once the condition (I/O, lock, sleep) is satisfied, the thread moves back to the **runnable** state.
+  - **Running → Terminated**: The thread moves to the **terminated** state when the `run()` method completes, or an unhandled exception occurs.
 </details>
 
 <details>
