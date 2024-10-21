@@ -582,7 +582,7 @@
   + **Capacity:** Capacity refers to the total number of buckets in the `HashMap`. The capacity grows (usually doubles) when the `HashMap` resizes.
   + **Rehashing:** Redistributing entries after resizing.
 
-   ** How HashMap works internally?**
+  **How HashMap works internally?**
 
   + When we call `put(key, value)`, the first step is to compute the hash code of the key.
   + Once the hash value is computed, the HashMap determines which bucket (index in the internal array). Formula: `int bucketIndex = hash & (n - 1); // n is the array length (capacity)`.
