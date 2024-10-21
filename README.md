@@ -577,6 +577,12 @@
           return Integer.compare(s1.age, s2.age);
       }
   }
+
+  // Sort by age
+  Collections.sort(people, ageComparator);
+
+  // Sort by name
+  Collections.sort(people, nameComparator);
   ```
 </details>
 
