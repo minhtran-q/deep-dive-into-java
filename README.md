@@ -1217,16 +1217,31 @@
 <details>
   <summary>What is serialization and why is it important?</summary>
   <br/>
-  
-</details>
-<details>
-  <summary>How does serialization work in Java?</summary>
-  <br/>
+
+  Serialization is the process of converting an object in memory (in Java or any programming language) into a stream of bytes, which can be stored in a file, sent over a network, or persisted in a database.
+
+  **How does serialization work**
+
+  + To serialize an object, the class of the object must implement the Serializable interface.
+  + If the class definition changes over time (e.g., fields are added or removed). This can be managed using the serialVersionUID field to ensure compatibility between different versions of a class.
+
+  **When use serialization**
+
+  + Saving Object State (Persistence)
+  + Transferring Objects Over a Network
+  + Caching
+  + Java Messaging and Queue Systems
   
 </details>
 <details>
   <summary>Role of the serialVersionUID field</summary>
   <br/>
+
+  The `serialVersionUID` is a unique identifier used in Java serialization to ensure version compatibility between serialized and deserialized objects.
+
+  **What Happens Without serialVersionUID?**
+
+  + Any change in the class definition (such as adding or removing fields or methods) could lead to a new serialVersionUID, potentially breaking deserialization.
   
 </details>
 
