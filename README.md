@@ -61,6 +61,22 @@
 
 </details>
 
+<details>
+  <summary>Interfaces vs Abstract Classes</summary>
+  <br/>
+
+  **Overriding**
+
+  + Method overriding occurs when a subclass provides a specific implementation of a method that is already defined in its parent class.
+  + The method signature (name, parameters, and return type) must remain the same.
+
+  **Overloading**
+
+  + Method overloading occurs when multiple methods in the same class have the same method name but different parameter lists.
+  + The return type may or may not be different.
+  
+</details>
+
 ### Future
 
 <details>
