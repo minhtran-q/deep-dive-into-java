@@ -662,7 +662,7 @@
   + Support for functional programming
   + Reduced code with Anonymous Classes.
   + Easier to work with Stream API.
-  + Improved eeadability and maintainability.
+  + Improved readability and maintainability.
   
 </details>
 <details>
