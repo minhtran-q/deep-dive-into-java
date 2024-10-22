@@ -693,7 +693,7 @@
   ```
   **Effectively Final Variables**
 
-  An effectively final variable is a variable that is not explicitly declared as `final`, but its value is assigned only once and never changed. A final variable in Java is a variable whose value is assigned once and cannot be changed after it has been initialized.  this concept to allow lambda expressions to access variables without the need for an explicit `final` declaration.
+  An effectively final variable is a variable that is not explicitly declared as `final`, but its value is assigned only once and never changed. This concept to allow lambda expressions to access variables without the need for an explicit `final` declaration.
   ```
   int number = 10;  // Not declared as final, but it's effectively final
   Runnable r = () -> System.out.println(number);  // This is valid
