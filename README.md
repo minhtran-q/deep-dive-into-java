@@ -671,8 +671,6 @@
 
   Method references and constructor references are shorthand notations for lambda expressions 
 
-  ## Examples of Different Method References
-
   | Type                               | Lambda Equivalent           | Method Reference    |
   | ---------------------------------- | --------------------------- | ------------------- |
   | **Static Method**                  | `(a) -> Math.abs(a)`        | `Math::abs`         |
