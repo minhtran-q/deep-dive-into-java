@@ -666,6 +666,22 @@
   
 </details>
 <details>
+  <summary>Method references and constructor references</summary>
+  <br/>
+
+  Method references and constructor references are shorthand notations for lambda expressions 
+
+  ## Examples of Different Method References
+
+  | Type                               | Lambda Equivalent           | Method Reference    |
+  | ---------------------------------- | --------------------------- | ------------------- |
+  | **Static Method**                  | `(a) -> Math.abs(a)`        | `Math::abs`         |
+  | **Instance Method of an Object**   | `str -> printer.print(str)` | `printer::print`    |
+  | **Instance Method of an Arbitrary Object** | `s -> s.toUpperCase()`    | `String::toUpperCase` |
+  | **Constructor**                    | `() -> new Person()`        | `Person::new`       |
+  
+</details>
+<details>
   <summary>Effectively final variables with Lambda</summary>
   <br/>
 
