@@ -339,6 +339,19 @@
 ### Stream APIs
 
 <details>
+  <summary>Why should use Stream API</summary>
+  <br/>
+
+  + Stream API allows for readable code, making it easier to understand.
+  + Streams are evaluated lazily, meaning they only compute results when needed.
+  + It reduces the amount of code compared to traditional iteration methods (like for-loops).
+  + It enables a functional programming style in Java.
+  + The Stream API supports parallel processing.
+  + It provides a rich set of built-in operations such as `filter()`, `map()`, `reduce()`, `collect()`.
+
+</details>
+
+<details>
   <summary>Stream API operations</summary>
   <br/>
 
