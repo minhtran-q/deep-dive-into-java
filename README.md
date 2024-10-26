@@ -77,6 +77,26 @@
   
 </details>
 
+<details>
+  <summary>Features of Java versions</summary>
+  <br/>
+
+  **Java 8:**
+
+  + Lambda Expressions
+  + Functional Interfaces
+  + Streams API
+  + Default Methods
+  + Optional Class
+
+  **Java 11:**
+
+  **Java 17:**
+
+  **Java 21:**
+  
+</details>
+
 ### Future
 
 <details>
@@ -1874,18 +1894,6 @@ public class StudentManager {
 ## New features
 
 ### Java 8
-
-<details>
-  <summary>Features</summary>
-  <br/>
-
-  + Lambda Expressions
-  + Functional Interfaces
-  + Streams API
-  + Default Methods
-  + Optional Class
-  
-</details>
 
 <details>
   <summary>Optional Class</summary>
