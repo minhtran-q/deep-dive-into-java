@@ -78,6 +78,20 @@
 </details>
 
 <details>
+  <summary>Optional Class</summary>
+  <br/>
+
+  **Purpose:** It helps in writing cleaner code by avoiding multiple null checks and making the code more readable.
+  
+  **Methods:**
+  + `isPresent()`: Returns `true` if there is a value present, otherwise false.
+  + `get()`: Returns the value if present, otherwise throws `NoSuchElementException`.
+  + `orElse()`: Returns the value if present, otherwise returns a default value.
+  + `ifPresent()`: Executes a block of code if the value is present2.
+  
+</details>
+
+<details>
   <summary>Features of Java versions</summary>
   <br/>
 
@@ -1894,19 +1908,6 @@ public class StudentManager {
 ## New features
 
 ### Java 8
-
-<details>
-  <summary>Optional Class</summary>
-  <br/>
-
-  **Purpose:** It helps in writing cleaner code by avoiding multiple null checks and making the code more readable.
-  **Methods:**
-  + `isPresent()`: Returns `true` if there is a value present, otherwise false.
-  + `get()`: Returns the value if present, otherwise throws `NoSuchElementException`.
-  + `orElse()`: Returns the value if present, otherwise returns a default value.
-  + `ifPresent()`: Executes a block of code if the value is present2.
-  
-</details>
 
 <details>
   <summary>Default and Static Methods in Interfaces</summary>
