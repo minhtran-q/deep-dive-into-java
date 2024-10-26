@@ -532,8 +532,14 @@
   <summary>ArrayList vs LinkedList</summary>
   <br/>
 
+  **ArrayList**
   + Use `ArrayList` if you need fast access to elements and your application involves more read operations.
+  + To be clear, even in the worst case, `ArrayList` is 4x smaller than a `LinkedList` with the same elements.
+  + `ArrayList` grows by 1.5x when it's full.
+  
+  **LinkedList**
   + Use `LinkedList` if your application involves a lot of insertions and deletions.
+  + `LinkedList` consumes 24 bytes per element.
   
 </details>
 
