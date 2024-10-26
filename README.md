@@ -1463,37 +1463,6 @@
   
 </details>
 
-### Concurrency vs Parallelism
-
-<details>
-  <summary>Concurrency</summary>
-  <br/>
-  
-  ![](images/concurrency.PNG)
-  
-  Concurrency means that an application is making progress on more than one task - at the same time or at least seemingly at the same time. If the computer only has one CPU the application may not make progress on more than one task at _exactly the same time_
-  
-</details>
-
-<details>
-  <summary>Parallel</summary>
-  <br/>
-  
-  ![](images/parallel.PNG)
-  
-  Parallel execution is when a computer has more than one CPU or CPU core, and makes progress on more than one task simultaneously.
-  
-</details>
-
-<details>
-  <summary>Parallel Concurrency</summary>
-  <br/>
-  
-  ![](images/concurrency-parallel.PNG)
-</details>
-
-### Race condition
-
 <details>
   <summary>What is Race condition</summary>
 
@@ -1530,6 +1499,35 @@
       }
   }
   ```
+</details>
+
+### Concurrency vs Parallelism
+
+<details>
+  <summary>Concurrency</summary>
+  <br/>
+  
+  ![](images/concurrency.PNG)
+  
+  Concurrency means that an application is making progress on more than one task - at the same time or at least seemingly at the same time. If the computer only has one CPU the application may not make progress on more than one task at _exactly the same time_
+  
+</details>
+
+<details>
+  <summary>Parallel</summary>
+  <br/>
+  
+  ![](images/parallel.PNG)
+  
+  Parallel execution is when a computer has more than one CPU or CPU core, and makes progress on more than one task simultaneously.
+  
+</details>
+
+<details>
+  <summary>Parallel Concurrency</summary>
+  <br/>
+  
+  ![](images/concurrency-parallel.PNG)
 </details>
 
 ### Thread Signaling
