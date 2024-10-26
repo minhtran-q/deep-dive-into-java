@@ -1048,6 +1048,31 @@
 
 </details>
 
+### JVM Configurations
+
+<details>
+  <summary>JVM Configuration for Production</summary>
+  <br/>
+
+  ```
+  java -Xms4g -Xmx4g \
+     -XX:+UseG1GC \
+     -XX:MaxGCPauseMillis=200 \
+     -XX:+HeapDumpOnOutOfMemoryError \
+     -XX:HeapDumpPath=/path/to/dumps \
+     -Xlog:gc*:file=/path/to/logs/gc.log:time,uptime:filecount=5,filesize=10M \
+     -Dcom.sun.management.jmxremote \
+     -Dcom.sun.management.jmxremote.port=9090 \
+     -Dcom.sun.management.jmxremote.authenticate=false \
+     -Dcom.sun.management.jmxremote.ssl=false \
+     -XX:+UnlockCommercialFeatures \
+     -XX:+FlightRecorder \
+     -XX:StartFlightRecording=filename=/path/to/logs/recording.jfr,duration=10m,settings=profile \
+     -jar your_application.jar
+  ```
+
+</details>
+
 ## Memory
 ### Memory Allocation
 
