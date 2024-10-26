@@ -1524,6 +1524,7 @@
 
 <details>
   <summary>What is Race condition</summary>
+  <br/>
 
   `Race conditions` occur only if multiple threads are accessing the same resource, and one or more of the threads write to the resource. If multiple threads read the same resource `race conditions` do not occur.
 
